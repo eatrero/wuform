@@ -15,6 +15,9 @@
 		21353D7E14A494990048D1B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D7D14A494990048D1B5 /* AppDelegate.m */; };
 		21353D8114A494990048D1B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8014A494990048D1B5 /* ViewController.m */; };
 		21353D8414A494990048D1B5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21353D8214A494990048D1B5 /* ViewController.xib */; };
+		21353D8C14A495E00048D1B5 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */; };
+		21353D8F14A4963B0048D1B5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8E14A4963B0048D1B5 /* Event.m */; };
+		21353D9114A497020048D1B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D9014A497020048D1B5 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +25,19 @@
 		21353D6D14A494990048D1B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21353D6F14A494990048D1B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21353D7114A494990048D1B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		21353D7514A494990048D1B5 /* WuForm-Info.plist */ = {isa = PBXFileReference; path = "WuForm-Info.plist"; sourceTree = "<group>"; };
+		21353D7514A494990048D1B5 /* WuForm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WuForm-Info.plist"; sourceTree = "<group>"; };
 		21353D7714A494990048D1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21353D7914A494990048D1B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		21353D7B14A494990048D1B5 /* WuForm-Prefix.pch */ = {isa = PBXFileReference; path = "WuForm-Prefix.pch"; sourceTree = "<group>"; };
-		21353D7C14A494990048D1B5 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		21353D7B14A494990048D1B5 /* WuForm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WuForm-Prefix.pch"; sourceTree = "<group>"; };
+		21353D7C14A494990048D1B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21353D7D14A494990048D1B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		21353D7F14A494990048D1B5 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		21353D7F14A494990048D1B5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		21353D8014A494990048D1B5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		21353D8314A494990048D1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		21353D8B14A495E00048D1B5 /* Entry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entry.xcdatamodel; sourceTree = "<group>"; };
+		21353D8D14A4963B0048D1B5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		21353D8E14A4963B0048D1B5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		21353D9014A497020048D1B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21353D9114A497020048D1B5 /* CoreData.framework in Frameworks */,
 				21353D6E14A494990048D1B5 /* UIKit.framework in Frameworks */,
 				21353D7014A494990048D1B5 /* Foundation.framework in Frameworks */,
 				21353D7214A494990048D1B5 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +75,7 @@
 		21353D6C14A494990048D1B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21353D9014A497020048D1B5 /* CoreData.framework */,
 				21353D6D14A494990048D1B5 /* UIKit.framework */,
 				21353D6F14A494990048D1B5 /* Foundation.framework */,
 				21353D7114A494990048D1B5 /* CoreGraphics.framework */,
@@ -79,6 +88,9 @@
 			children = (
 				21353D7C14A494990048D1B5 /* AppDelegate.h */,
 				21353D7D14A494990048D1B5 /* AppDelegate.m */,
+				21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */,
+				21353D8D14A4963B0048D1B5 /* Event.h */,
+				21353D8E14A4963B0048D1B5 /* Event.m */,
 				21353D7F14A494990048D1B5 /* ViewController.h */,
 				21353D8014A494990048D1B5 /* ViewController.m */,
 				21353D8214A494990048D1B5 /* ViewController.xib */,
@@ -163,6 +175,8 @@
 				21353D7A14A494990048D1B5 /* main.m in Sources */,
 				21353D7E14A494990048D1B5 /* AppDelegate.m in Sources */,
 				21353D8114A494990048D1B5 /* ViewController.m in Sources */,
+				21353D8C14A495E00048D1B5 /* Entry.xcdatamodeld in Sources */,
+				21353D8F14A4963B0048D1B5 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +292,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21353D8B14A495E00048D1B5 /* Entry.xcdatamodel */,
+			);
+			currentVersion = 21353D8B14A495E00048D1B5 /* Entry.xcdatamodel */;
+			path = Entry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 21353D6014A494990048D1B5 /* Project object */;
 }
