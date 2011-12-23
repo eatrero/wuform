@@ -8,7 +8,7 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "EditViewController.h"
 
 @implementation AppDelegate
 
@@ -30,7 +30,7 @@
     }
   
   
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    self.viewController = [[ViewController alloc] initWithNibName:@"EditViewController" bundle:nil];
     self.viewController.managedObjectContext = context;
   
     self.window.rootViewController = self.viewController;

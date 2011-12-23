@@ -12,8 +12,11 @@
 
 @interface Event : NSManagedObject
 
-@property (nonatomic, retain) NSDate * creationDate;
+@property (nonatomic, retain) NSDate   * creationDate;
+@property (nonatomic, retain) NSDate   * weddingDate;
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSString * emailAddress;
+@property (nonatomic)         Boolean  * synched;
 
 @end

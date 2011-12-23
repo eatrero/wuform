@@ -12,7 +12,10 @@
 @implementation Event
 
 @dynamic creationDate;
+@dynamic weddingDate;
 @dynamic firstName;
 @dynamic lastName;
+@dynamic emailAddress;
+@dynamic synched;
 
 @end
