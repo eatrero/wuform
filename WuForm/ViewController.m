@@ -231,13 +231,36 @@
                            inManagedObjectContext:managedObjectContext];
   
   [event setCreationDate:[NSDate date]];
-  [event setFirstName:@"first name"];
+  [event setFirstName:@"first name 2"];
   [event setLastName:@"last name"];
   
   NSError *error = nil;
   if (![managedObjectContext save:&error]) {
     // Handle the error.
   }    
+  
+#if 1 
+  // test
+  NSFetchRequest *request = [[NSFetchRequest alloc] init];
+  NSEntityDescription *entity = (Event *)[NSEntityDescription entityForName:@"Event"
+                                            inManagedObjectContext:managedObjectContext];
+  [request setEntity:entity];
+  
+  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                      initWithKey:@"creationDate" ascending:YES];
+  NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor,
+                              nil];
+  [request setSortDescriptors:sortDescriptors];
+  
+  NSMutableArray *mutableFetchResults = [[managedObjectContext
+                                          executeFetchRequest:request error:&error] mutableCopy];  
+  
+  Event *eventTmp;
+  for (eventTmp in mutableFetchResults) {
+    NSLog(@"%@", eventTmp.firstName);
+  }  
+  
+#endif  
   
   [eventsArray insertObject:event atIndex:0];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
