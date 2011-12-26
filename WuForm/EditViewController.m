@@ -85,6 +85,11 @@
   [addButton2 setBackgroundColor:[UIColor blueColor]];
   [self.view addSubview:addButton2];
   
+  popoverViewController = [[UIViewController alloc] init];
+  popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverViewController];
+  [popoverController setPopoverContentSize:CGSizeMake(320, 200) animated:YES];
+  
+  
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event"
                                             inManagedObjectContext:managedObjectContext];
@@ -252,6 +257,17 @@
   
 }
 
+- (IBAction)setDate:(id)sender
+{
 
+  NSLog(@"Popup Controller");
+  [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+  
+//  UIPopoverController *aPopoverController = [[UIPopoverController alloc] initWithContentViewController:];
+//  [aPopoverController setDelegate:self];
+//  [aPopoverController presentPopoverFromRect:CGRectMake(40, 40, 40, 40) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+//  [aPopoverController setPopoverContentSize:CGSizeMake(240, 320)];
+
+}
 
 @end
