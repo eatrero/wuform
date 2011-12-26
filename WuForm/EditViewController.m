@@ -16,6 +16,7 @@
 @synthesize eventsArray;
 @synthesize managedObjectContext;
 @synthesize addButton2;
+@synthesize emailTextField;
 
 - (void)didReceiveMemoryWarning
 {
@@ -90,7 +91,6 @@
   popoverViewController = [[WeddingDateViewController alloc] init];
   popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverViewController];
   [popoverController setPopoverContentSize:CGSizeMake(320, 280) animated:YES];
-  
   
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event"
@@ -261,6 +261,7 @@
 
 - (IBAction)setDate:(id)sender
 {
+  [self.emailTextField resignFirstResponder];
 
   NSLog(@"Popup Controller");
   [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
@@ -270,6 +271,23 @@
 //  [aPopoverController presentPopoverFromRect:CGRectMake(40, 40, 40, 40) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 //  [aPopoverController setPopoverContentSize:CGSizeMake(240, 320)];
 
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+// A delegate method called by the URL text field when the editing is complete. 
+// We save the current value of the field in our settings.
+{
+  [textField resignFirstResponder];
+  return NO;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+// A delegate method called by the URL text field when the user taps the Return 
+// key.  We just dismiss the keyboard.
+{
+  [textField resignFirstResponder];
+  return NO;
 }
 
 @end
