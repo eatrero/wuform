@@ -9,6 +9,7 @@
 #import <CoreData/CoreData.h>
 #import "EditViewController.h"
 #import "Event.h"
+#import "weddingDateViewController.h"
 
 
 @implementation ViewController
@@ -85,9 +86,10 @@
   [addButton2 setBackgroundColor:[UIColor blueColor]];
   [self.view addSubview:addButton2];
   
-  popoverViewController = [[UIViewController alloc] init];
+//  popoverViewController = [[UIViewController alloc] init];
+  popoverViewController = [[WeddingDateViewController alloc] init];
   popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverViewController];
-  [popoverController setPopoverContentSize:CGSizeMake(320, 200) animated:YES];
+  [popoverController setPopoverContentSize:CGSizeMake(320, 280) animated:YES];
   
   
   NSFetchRequest *request = [[NSFetchRequest alloc] init];

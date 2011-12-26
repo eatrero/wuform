@@ -18,6 +18,7 @@
 		21353D8C14A495E00048D1B5 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */; };
 		21353D8F14A4963B0048D1B5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8E14A4963B0048D1B5 /* Event.m */; };
 		21353D9114A497020048D1B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D9014A497020048D1B5 /* CoreData.framework */; };
+		21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C91A4114A80BD00009AC7E /* weddingDateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +32,15 @@
 		21353D7B14A494990048D1B5 /* WuForm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WuForm-Prefix.pch"; sourceTree = "<group>"; };
 		21353D7C14A494990048D1B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21353D7D14A494990048D1B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		21353D7F14A494990048D1B5 /* EditViewController.h */ = {isa = PBXFileReference; path = EditViewController.h; sourceTree = "<group>"; };
+		21353D7F14A494990048D1B5 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		21353D8014A494990048D1B5 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		21353D8314A494990048D1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EditViewController.xib; sourceTree = "<group>"; };
 		21353D8B14A495E00048D1B5 /* Entry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entry.xcdatamodel; sourceTree = "<group>"; };
 		21353D8D14A4963B0048D1B5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		21353D8E14A4963B0048D1B5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		21353D9014A497020048D1B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		21C91A4014A80BD00009AC7E /* weddingDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weddingDateViewController.h; sourceTree = "<group>"; };
+		21C91A4114A80BD00009AC7E /* weddingDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weddingDateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */,
 				21353D8D14A4963B0048D1B5 /* Event.h */,
 				21353D8E14A4963B0048D1B5 /* Event.m */,
+				21C91A4014A80BD00009AC7E /* weddingDateViewController.h */,
+				21C91A4114A80BD00009AC7E /* weddingDateViewController.m */,
 				21353D7F14A494990048D1B5 /* EditViewController.h */,
 				21353D8014A494990048D1B5 /* EditViewController.m */,
 				21353D8214A494990048D1B5 /* EditViewController.xib */,
@@ -177,6 +182,7 @@
 				21353D8114A494990048D1B5 /* EditViewController.m in Sources */,
 				21353D8C14A495E00048D1B5 /* Entry.xcdatamodeld in Sources */,
 				21353D8F14A4963B0048D1B5 /* Event.m in Sources */,
+				21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +296,7 @@
 				21353D8914A494990048D1B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
