@@ -81,7 +81,7 @@
   // Set up the buttons.
   
   addButton2 = [[UIButton alloc] init];
-  [addButton2 addTarget:self action:@selector(addEvent) forControlEvents:UIControlEventTouchUpInside];
+  [addButton2 addTarget:self action:@selector(addEvent:) forControlEvents:UIControlEventTouchUpInside];
   [addButton2 setFrame:CGRectMake(0.0f, 0.0f, 60.0f, 40.0f)];
   [addButton2 setCenter:CGPointMake(120.0f,280.f)];
   [addButton2 setBackgroundColor:[UIColor blueColor]];

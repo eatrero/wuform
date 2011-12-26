@@ -11,6 +11,11 @@
 @interface WeddingDateViewController : UIViewController
 {
   UIDatePicker *weddingDatePicker;
+  NSDate *weddingDate;
+  UIButton *okButton;
 }
+
+@property NSDate *weddingDate;
+- (IBAction)finishedDateSelection:(id)sender;
 
 @end

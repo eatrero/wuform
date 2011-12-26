@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2102A1D714A885AA00288470 /* date-button-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2102A1D514A885AA00288470 /* date-button-highlight.png */; };
+		2102A1D814A885AA00288470 /* date-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2102A1D614A885AA00288470 /* date-button.png */; };
 		21353D6E14A494990048D1B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D6D14A494990048D1B5 /* UIKit.framework */; };
 		21353D7014A494990048D1B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D6F14A494990048D1B5 /* Foundation.framework */; };
 		21353D7214A494990048D1B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D7114A494990048D1B5 /* CoreGraphics.framework */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2102A1D514A885AA00288470 /* date-button-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date-button-highlight.png"; sourceTree = "<group>"; };
+		2102A1D614A885AA00288470 /* date-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date-button.png"; sourceTree = "<group>"; };
 		21353D6914A494990048D1B5 /* WuForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WuForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21353D6D14A494990048D1B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21353D6F14A494990048D1B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +111,8 @@
 		21353D7414A494990048D1B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2102A1D514A885AA00288470 /* date-button-highlight.png */,
+				2102A1D614A885AA00288470 /* date-button.png */,
 				21353D7514A494990048D1B5 /* WuForm-Info.plist */,
 				21353D7614A494990048D1B5 /* InfoPlist.strings */,
 				21353D7914A494990048D1B5 /* main.m */,
@@ -167,6 +173,8 @@
 			files = (
 				21353D7814A494990048D1B5 /* InfoPlist.strings in Resources */,
 				21353D8414A494990048D1B5 /* EditViewController.xib in Resources */,
+				2102A1D714A885AA00288470 /* date-button-highlight.png in Resources */,
+				2102A1D814A885AA00288470 /* date-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

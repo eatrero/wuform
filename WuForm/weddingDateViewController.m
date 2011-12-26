@@ -9,6 +9,7 @@
 #import "weddingDateViewController.h"
 
 #define MAX_DATE_IN_SEC 60*60*24*365.25*10.0  // 10 years
+#define REFDATE_TO_2012 (60*60*24*365.25*11.0 - 60*60*24)  // 11 years
 
 @implementation WeddingDateViewController
 
@@ -45,9 +46,19 @@
   [super viewDidLoad];
   weddingDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 240)];
   [weddingDatePicker setDatePickerMode:UIDatePickerModeDate];
-  [weddingDatePicker setMinimumDate:[[NSDate alloc] initWithTimeIntervalSinceNow:0.0]];
+  [weddingDatePicker setMinimumDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:REFDATE_TO_2012]];
   [weddingDatePicker setMaximumDate:[[NSDate alloc] initWithTimeIntervalSinceNow:MAX_DATE_IN_SEC]];
+  [weddingDatePicker setDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:REFDATE_TO_2012]];
+  
   [self.view addSubview:weddingDatePicker];
+  
+  UIImage *btnImage = [UIImage imageNamed:@"date-button.png"];
+  okButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0, 220.0, 300.0, 60.0)];
+  [okButton setBackgroundImage:btnImage forState:UIControlStateNormal];
+  [okButton setTitle:@"DONE" forState:UIControlStateNormal];
+  [okButton addTarget:self action:@selector(finishedDateSelection:) forControlEvents:UIControlEventTouchUpInside];
+
+  [self.view addSubview:okButton];
 }
 
 - (void)viewDidUnload
@@ -61,6 +72,11 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (IBAction)finishedDateSelection:(id)sender;
+{
+//  [self dismissPopoverAnimated:YES];
 }
 
 @end
