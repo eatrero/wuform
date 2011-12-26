@@ -12,6 +12,5 @@
 {
   UIDatePicker *weddingDatePicker;
 }
-@property (nonatomic, retain) UIDatePicker *weddingDatePicker;
 
 @end

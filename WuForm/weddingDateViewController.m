@@ -8,6 +8,8 @@
 
 #import "weddingDateViewController.h"
 
+#define MAX_DATE_IN_SEC 60*60*24*365.25*10.0  // 10 years
+
 @implementation WeddingDateViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,6 +45,8 @@
   [super viewDidLoad];
   weddingDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 240)];
   [weddingDatePicker setDatePickerMode:UIDatePickerModeDate];
+  [weddingDatePicker setMinimumDate:[[NSDate alloc] initWithTimeIntervalSinceNow:0.0]];
+  [weddingDatePicker setMaximumDate:[[NSDate alloc] initWithTimeIntervalSinceNow:MAX_DATE_IN_SEC]];
   [self.view addSubview:weddingDatePicker];
 }
 
