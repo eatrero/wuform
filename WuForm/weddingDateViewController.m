@@ -13,6 +13,9 @@
 
 @implementation WeddingDateViewController
 
+@synthesize weddingDate;
+@synthesize responder;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -77,6 +80,10 @@
 - (IBAction)finishedDateSelection:(id)sender;
 {
 //  [self dismissPopoverAnimated:YES];
+  if ( [responder respondsToSelector:@selector(dateSelected:)] ) {
+    NSLog(@"calling dateSelected delegate");  
+    [responder dateSelected:weddingDatePicker.date];
+  }
 }
 
 @end

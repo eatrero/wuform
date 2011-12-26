@@ -7,17 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "weddingDateViewController.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate, UIPopoverControllerDelegate> 
+
+@interface ViewController : UIViewController <UITextFieldDelegate, UIPopoverControllerDelegate, WeddingDateViewControllerDelegate> 
 {
   NSMutableArray *eventsArray;
   NSManagedObjectContext *managedObjectContext;
   UIButton *addButton2;
   UIPopoverController *popoverController;
-  UIViewController *popoverViewController;
+  WeddingDateViewController *popoverViewController;
   UITextField *firstNameTextField;
   UITextField *lastNameTextField;
   UITextField *emailTextField;
+  UIButton *setDateButton;
+  NSDate *weddingDate;
 }
 @property (nonatomic, retain) NSMutableArray *eventsArray;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -26,9 +30,12 @@
 @property (nonatomic, retain) IBOutlet UITextField *firstNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *lastNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *emailTextField;
+@property (nonatomic, retain) IBOutlet UIButton    *setDateButton;
+@property (nonatomic, retain) NSDate *weddingDate;
 
 
 - (IBAction)addEvent:(id)sender;
 - (IBAction)setDate:(id)sender;
+- (void)dateSelected:(NSDate *)date;
 
 @end

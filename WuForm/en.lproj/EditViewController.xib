@@ -270,6 +270,14 @@
 					<int key="connectionID">17</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">setDateButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="482599756"/>
+					</object>
+					<int key="connectionID">20</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">addEvent:</string>
 						<reference key="source" ref="342966989"/>
@@ -394,7 +402,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">19</int>
+			<int key="maxID">20</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -419,6 +427,7 @@
 						<string key="emailTextField">UITextField</string>
 						<string key="firstNameTextField">UITextField</string>
 						<string key="lastNameTextField">UITextField</string>
+						<string key="setDateButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="emailTextField">
@@ -432,6 +441,10 @@
 						<object class="IBToOneOutletInfo" key="lastNameTextField">
 							<string key="name">lastNameTextField</string>
 							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="setDateButton">
+							<string key="name">setDateButton</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

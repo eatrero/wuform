@@ -9,14 +9,18 @@
 #import <CoreData/CoreData.h>
 #import "EditViewController.h"
 #import "Event.h"
-#import "weddingDateViewController.h"
 
 
 @implementation ViewController
 @synthesize eventsArray;
 @synthesize managedObjectContext;
 @synthesize addButton2;
+@synthesize popoverViewController;
+@synthesize firstNameTextField;
+@synthesize lastNameTextField;
 @synthesize emailTextField;
+@synthesize setDateButton;
+@synthesize weddingDate;
 
 - (void)didReceiveMemoryWarning
 {
@@ -80,15 +84,9 @@
   self.title = @"WuForm";
   // Set up the buttons.
   
-  addButton2 = [[UIButton alloc] init];
-  [addButton2 addTarget:self action:@selector(addEvent:) forControlEvents:UIControlEventTouchUpInside];
-  [addButton2 setFrame:CGRectMake(0.0f, 0.0f, 60.0f, 40.0f)];
-  [addButton2 setCenter:CGPointMake(120.0f,280.f)];
-  [addButton2 setBackgroundColor:[UIColor blueColor]];
-  [self.view addSubview:addButton2];
-  
-//  popoverViewController = [[UIViewController alloc] init];
+  // popoverViewController = [[UIViewController alloc] init];
   popoverViewController = [[WeddingDateViewController alloc] init];
+  [popoverViewController setResponder:self];
   popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverViewController];
   [popoverController setPopoverContentSize:CGSizeMake(320, 280) animated:YES];
   
@@ -234,7 +232,7 @@
 #if 1
   // test
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
-  NSEntityDescription *entity = (Event *)[NSEntityDescription entityForName:@"Event"
+  NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event"
                                             inManagedObjectContext:managedObjectContext];
   [request setEntity:entity];
   
@@ -255,7 +253,7 @@
 #endif  
   
   [eventsArray insertObject:event atIndex:0];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
   
 }
 
@@ -266,11 +264,6 @@
   NSLog(@"Popup Controller");
   [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
   
-//  UIPopoverController *aPopoverController = [[UIPopoverController alloc] initWithContentViewController:];
-//  [aPopoverController setDelegate:self];
-//  [aPopoverController presentPopoverFromRect:CGRectMake(40, 40, 40, 40) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-//  [aPopoverController setPopoverContentSize:CGSizeMake(240, 320)];
-
 }
 
 
@@ -279,7 +272,6 @@
 // We save the current value of the field in our settings.
 {
   [textField resignFirstResponder];
-  return NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -288,6 +280,17 @@
 {
   [textField resignFirstResponder];
   return NO;
+}
+
+- (void)dateSelected:(NSDate *)date;
+{
+  NSLog(@"date Selected delegate");  
+  self.weddingDate = date;
+  NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+  setDateButton.titleLabel.text = [dateFormatter stringFromDate:date];
+  setDateButton.titleLabel.textAlignment = UITextAlignmentCenter;
+  [popoverController dismissPopoverAnimated:YES];
 }
 
 @end

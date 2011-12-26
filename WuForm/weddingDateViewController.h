@@ -8,14 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WeddingDateViewControllerDelegate <NSObject>
+
+- (void)dateSelected:(NSDate *)date;
+
+@end
+
 @interface WeddingDateViewController : UIViewController
 {
   UIDatePicker *weddingDatePicker;
   NSDate *weddingDate;
   UIButton *okButton;
+  id responder;
 }
 
-@property NSDate *weddingDate;
+@property (nonatomic, retain) NSDate *weddingDate;
+@property (nonatomic, retain) id responder;
 - (IBAction)finishedDateSelection:(id)sender;
-
 @end
