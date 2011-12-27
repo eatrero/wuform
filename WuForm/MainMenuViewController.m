@@ -37,12 +37,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
+  self.title = @"Atrero Photography";
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-2.png"]];
   addViewController = [[AddViewController alloc] init];
   addViewController.managedObjectContext = managedObjectContext;
+  [self.navigationController setNavigationBarHidden:YES animated:NO];
   
    [addButton addTarget:self action:@selector(showAddView:) forControlEvents:UIControlEventTouchUpInside];
   
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)viewDidUnload
@@ -63,8 +73,18 @@
   // 
   NSLog(@"ShowAddView");
   
-  [mainMenuNavigationController pushViewController:addViewController animated:YES];
-
+	//Set Animation Properties
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration: 0.50];
+	
+	//Hook To MainView
+	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.mainMenuNavigationController.view cache:YES];
+	
+	//Push OnTo NavigationController
+  [mainMenuNavigationController pushViewController:addViewController animated:NO];
+	
+	//Start Animation
+	[UIView commitAnimations];
 }
 
 

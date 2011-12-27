@@ -23,6 +23,8 @@
 		21353D8F14A4963B0048D1B5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8E14A4963B0048D1B5 /* Event.m */; };
 		21353D9114A497020048D1B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D9014A497020048D1B5 /* CoreData.framework */; };
 		21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C91A4114A80BD00009AC7E /* weddingDateViewController.m */; };
+		21CE786114A9D5F400029155 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786014A9D5F400029155 /* background-2.png */; };
+		21CE786314A9D66F00029155 /* background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786214A9D66F00029155 /* background-1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		21353D9014A497020048D1B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		21C91A4014A80BD00009AC7E /* weddingDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weddingDateViewController.h; sourceTree = "<group>"; };
 		21C91A4114A80BD00009AC7E /* weddingDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weddingDateViewController.m; sourceTree = "<group>"; };
+		21CE786014A9D5F400029155 /* background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-2.png"; sourceTree = "<group>"; };
+		21CE786214A9D66F00029155 /* background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 		21353D7414A494990048D1B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				21CE786214A9D66F00029155 /* background-1.png */,
+				21CE786014A9D5F400029155 /* background-2.png */,
 				2102A1D514A885AA00288470 /* date-button-highlight.png */,
 				2102A1D614A885AA00288470 /* date-button.png */,
 				21353D7514A494990048D1B5 /* WuForm-Info.plist */,
@@ -184,6 +190,8 @@
 				2102A1D714A885AA00288470 /* date-button-highlight.png in Resources */,
 				2102A1D814A885AA00288470 /* date-button.png in Resources */,
 				212AEA6714A96D9400E15AD5 /* MainMenuViewController.xib in Resources */,
+				21CE786114A9D5F400029155 /* background-2.png in Resources */,
+				21CE786314A9D66F00029155 /* background-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,6 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -51,7 +52,17 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[super viewWillDisappear:animated];
+  [UIView beginAnimations:nil context:NULL];
+  [UIView setAnimationDuration: 1.50];
+  
+  //Hook To MainView
+  [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
+  
+  [self.navigationController setNavigationBarHidden:NO animated:YES];
+  
+  [super viewWillDisappear:NO];
+  
+  [UIView commitAnimations];  
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -81,8 +92,10 @@
   [super viewDidLoad];
   
   // Set the title.
-  self.title = @"WuForm";
+  self.title = @"Add";
+  
   // Set up the buttons.
+  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
   
   // popoverViewController = [[UIViewController alloc] init];
   popoverViewController = [[WeddingDateViewController alloc] init];
