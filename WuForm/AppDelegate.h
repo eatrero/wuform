@@ -7,18 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainMenuViewController.h"
 
-@class ViewController;
+@class AddViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
   UINavigationController *navigationController;
+  MainMenuViewController *rootViewController;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ViewController *viewController;
-
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

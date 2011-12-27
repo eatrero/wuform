@@ -8,12 +8,12 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 
-#import "EditViewController.h"
+#import "AddViewController.h"
+#import "MainMenuViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
@@ -29,11 +29,14 @@
       // Handle the error.
     }
   
+  rootViewController = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
+  rootViewController.managedObjectContext = context;
   
-    self.viewController = [[ViewController alloc] initWithNibName:@"EditViewController" bundle:nil];
-    self.viewController.managedObjectContext = context;
+  navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+  rootViewController.mainMenuNavigationController = navigationController;
   
-    self.window.rootViewController = self.viewController;
+  self.window.rootViewController = navigationController;
+  
     [self.window makeKeyAndVisible];
   
   

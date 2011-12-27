@@ -9,14 +9,16 @@
 /* Begin PBXBuildFile section */
 		2102A1D714A885AA00288470 /* date-button-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2102A1D514A885AA00288470 /* date-button-highlight.png */; };
 		2102A1D814A885AA00288470 /* date-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2102A1D614A885AA00288470 /* date-button.png */; };
+		212AEA6614A96D9400E15AD5 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */; };
+		212AEA6714A96D9400E15AD5 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */; };
 		21353D6E14A494990048D1B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D6D14A494990048D1B5 /* UIKit.framework */; };
 		21353D7014A494990048D1B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D6F14A494990048D1B5 /* Foundation.framework */; };
 		21353D7214A494990048D1B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D7114A494990048D1B5 /* CoreGraphics.framework */; };
 		21353D7814A494990048D1B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21353D7614A494990048D1B5 /* InfoPlist.strings */; };
 		21353D7A14A494990048D1B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D7914A494990048D1B5 /* main.m */; };
 		21353D7E14A494990048D1B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D7D14A494990048D1B5 /* AppDelegate.m */; };
-		21353D8114A494990048D1B5 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8014A494990048D1B5 /* EditViewController.m */; };
-		21353D8414A494990048D1B5 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21353D8214A494990048D1B5 /* EditViewController.xib */; };
+		21353D8114A494990048D1B5 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8014A494990048D1B5 /* AddViewController.m */; };
+		21353D8414A494990048D1B5 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21353D8214A494990048D1B5 /* AddViewController.xib */; };
 		21353D8C14A495E00048D1B5 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */; };
 		21353D8F14A4963B0048D1B5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8E14A4963B0048D1B5 /* Event.m */; };
 		21353D9114A497020048D1B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D9014A497020048D1B5 /* CoreData.framework */; };
@@ -26,6 +28,9 @@
 /* Begin PBXFileReference section */
 		2102A1D514A885AA00288470 /* date-button-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date-button-highlight.png"; sourceTree = "<group>"; };
 		2102A1D614A885AA00288470 /* date-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date-button.png"; sourceTree = "<group>"; };
+		212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
 		21353D6914A494990048D1B5 /* WuForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WuForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21353D6D14A494990048D1B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21353D6F14A494990048D1B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,9 +41,9 @@
 		21353D7B14A494990048D1B5 /* WuForm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WuForm-Prefix.pch"; sourceTree = "<group>"; };
 		21353D7C14A494990048D1B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21353D7D14A494990048D1B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		21353D7F14A494990048D1B5 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
-		21353D8014A494990048D1B5 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
-		21353D8314A494990048D1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EditViewController.xib; sourceTree = "<group>"; };
+		21353D7F14A494990048D1B5 /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		21353D8014A494990048D1B5 /* AddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		21353D8314A494990048D1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AddViewController.xib; sourceTree = "<group>"; };
 		21353D8B14A495E00048D1B5 /* Entry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entry.xcdatamodel; sourceTree = "<group>"; };
 		21353D8D14A4963B0048D1B5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		21353D8E14A4963B0048D1B5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
@@ -99,10 +104,13 @@
 				21353D8D14A4963B0048D1B5 /* Event.h */,
 				21353D8E14A4963B0048D1B5 /* Event.m */,
 				21C91A4014A80BD00009AC7E /* weddingDateViewController.h */,
+				212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */,
+				212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */,
+				212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */,
 				21C91A4114A80BD00009AC7E /* weddingDateViewController.m */,
-				21353D7F14A494990048D1B5 /* EditViewController.h */,
-				21353D8014A494990048D1B5 /* EditViewController.m */,
-				21353D8214A494990048D1B5 /* EditViewController.xib */,
+				21353D7F14A494990048D1B5 /* AddViewController.h */,
+				21353D8014A494990048D1B5 /* AddViewController.m */,
+				21353D8214A494990048D1B5 /* AddViewController.xib */,
 				21353D7414A494990048D1B5 /* Supporting Files */,
 			);
 			path = WuForm;
@@ -172,9 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21353D7814A494990048D1B5 /* InfoPlist.strings in Resources */,
-				21353D8414A494990048D1B5 /* EditViewController.xib in Resources */,
+				21353D8414A494990048D1B5 /* AddViewController.xib in Resources */,
 				2102A1D714A885AA00288470 /* date-button-highlight.png in Resources */,
 				2102A1D814A885AA00288470 /* date-button.png in Resources */,
+				212AEA6714A96D9400E15AD5 /* MainMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,10 +196,11 @@
 			files = (
 				21353D7A14A494990048D1B5 /* main.m in Sources */,
 				21353D7E14A494990048D1B5 /* AppDelegate.m in Sources */,
-				21353D8114A494990048D1B5 /* EditViewController.m in Sources */,
+				21353D8114A494990048D1B5 /* AddViewController.m in Sources */,
 				21353D8C14A495E00048D1B5 /* Entry.xcdatamodeld in Sources */,
 				21353D8F14A4963B0048D1B5 /* Event.m in Sources */,
 				21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */,
+				212AEA6614A96D9400E15AD5 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,12 +215,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		21353D8214A494990048D1B5 /* EditViewController.xib */ = {
+		21353D8214A494990048D1B5 /* AddViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				21353D8314A494990048D1B5 /* en */,
 			);
-			name = EditViewController.xib;
+			name = AddViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
