@@ -17,6 +17,6 @@
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * emailAddress;
-@property (nonatomic)         Boolean  * synched;
+@property (nonatomic, retain) NSNumber * synched;
 
 @end

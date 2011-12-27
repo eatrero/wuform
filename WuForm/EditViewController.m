@@ -221,8 +221,11 @@
                            inManagedObjectContext:managedObjectContext];
   
   [event setCreationDate:[NSDate date]];
-  [event setFirstName:@"first name 2"];
-  [event setLastName:@"last name"];
+  [event setFirstName:firstNameTextField.text];
+  [event setLastName:lastNameTextField.text];
+  [event setEmailAddress:emailTextField.text];
+  [event setWeddingDate:weddingDate];
+  [event setSynched:[NSNumber numberWithBool:NO]];
   
   NSError *error = nil;
   if (![managedObjectContext save:&error]) {
@@ -246,8 +249,12 @@
                                           executeFetchRequest:request error:&error] mutableCopy];  
   
   Event *eventTmp;
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+
+  NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
   for (eventTmp in mutableFetchResults) {
-    NSLog(@"%@", eventTmp.firstName);
+    NSLog(@"%@ %@ %@ %@ %@", eventTmp.firstName, eventTmp.lastName, eventTmp.emailAddress, [dateFormatter stringFromDate:weddingDate], [numberFormatter stringFromNumber:eventTmp.synched]);
   }  
   
 #endif  
