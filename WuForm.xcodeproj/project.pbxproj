@@ -25,6 +25,15 @@
 		21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C91A4114A80BD00009AC7E /* weddingDateViewController.m */; };
 		21CE786114A9D5F400029155 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786014A9D5F400029155 /* background-2.png */; };
 		21CE786314A9D66F00029155 /* background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786214A9D66F00029155 /* background-1.png */; };
+		21CE788414AA01B300029155 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE787F14AA01B200029155 /* MGSplitCornersView.m */; };
+		21CE788514AA01B300029155 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788114AA01B200029155 /* MGSplitDividerView.m */; };
+		21CE788614AA01B300029155 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788314AA01B200029155 /* MGSplitViewController.m */; };
+		21CE788914AA06D700029155 /* ListMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788814AA06D600029155 /* ListMasterViewController.m */; };
+		21CE788C14AC887600029155 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788B14AC887500029155 /* ListViewController.m */; };
+		21CE789314AC892400029155 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE789114AC891D00029155 /* ListDetailViewController.m */; };
+		21CE789414AC892400029155 /* ListDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CE789214AC892000029155 /* ListDetailViewController.xib */; };
+		21CE789814AC8E1D00029155 /* ListViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE789614AC8E1B00029155 /* ListViewController2.m */; };
+		21CE789914AC8E1D00029155 /* ListViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CE789714AC8E1D00029155 /* ListViewController2.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +63,22 @@
 		21C91A4114A80BD00009AC7E /* weddingDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weddingDateViewController.m; sourceTree = "<group>"; };
 		21CE786014A9D5F400029155 /* background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-2.png"; sourceTree = "<group>"; };
 		21CE786214A9D66F00029155 /* background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-1.png"; sourceTree = "<group>"; };
+		21CE787E14AA01B200029155 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		21CE787F14AA01B200029155 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		21CE788014AA01B200029155 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		21CE788114AA01B200029155 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		21CE788214AA01B200029155 /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		21CE788314AA01B200029155 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+		21CE788714AA06D600029155 /* ListMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListMasterViewController.h; sourceTree = "<group>"; };
+		21CE788814AA06D600029155 /* ListMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListMasterViewController.m; sourceTree = "<group>"; };
+		21CE788A14AC887500029155 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		21CE788B14AC887500029155 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		21CE789014AC891B00029155 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
+		21CE789114AC891D00029155 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
+		21CE789214AC892000029155 /* ListDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListDetailViewController.xib; sourceTree = "<group>"; };
+		21CE789514AC8E1B00029155 /* ListViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController2.h; sourceTree = "<group>"; };
+		21CE789614AC8E1B00029155 /* ListViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController2.m; sourceTree = "<group>"; };
+		21CE789714AC8E1D00029155 /* ListViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController2.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +136,21 @@
 				212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */,
 				212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */,
 				212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */,
+				21CE788A14AC887500029155 /* ListViewController.h */,
+				21CE788B14AC887500029155 /* ListViewController.m */,
+				21CE789514AC8E1B00029155 /* ListViewController2.h */,
+				21CE789614AC8E1B00029155 /* ListViewController2.m */,
+				21CE789714AC8E1D00029155 /* ListViewController2.xib */,
+				21CE788714AA06D600029155 /* ListMasterViewController.h */,
+				21CE788814AA06D600029155 /* ListMasterViewController.m */,
+				21CE789014AC891B00029155 /* ListDetailViewController.h */,
+				21CE789114AC891D00029155 /* ListDetailViewController.m */,
+				21CE789214AC892000029155 /* ListDetailViewController.xib */,
 				21C91A4114A80BD00009AC7E /* weddingDateViewController.m */,
 				21353D7F14A494990048D1B5 /* AddViewController.h */,
 				21353D8014A494990048D1B5 /* AddViewController.m */,
 				21353D8214A494990048D1B5 /* AddViewController.xib */,
+				21CE787D14AA01B200029155 /* MGSplitView */,
 				21353D7414A494990048D1B5 /* Supporting Files */,
 			);
 			path = WuForm;
@@ -133,6 +169,19 @@
 				21353D7B14A494990048D1B5 /* WuForm-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21CE787D14AA01B200029155 /* MGSplitView */ = {
+			isa = PBXGroup;
+			children = (
+				21CE787E14AA01B200029155 /* MGSplitCornersView.h */,
+				21CE787F14AA01B200029155 /* MGSplitCornersView.m */,
+				21CE788014AA01B200029155 /* MGSplitDividerView.h */,
+				21CE788114AA01B200029155 /* MGSplitDividerView.m */,
+				21CE788214AA01B200029155 /* MGSplitViewController.h */,
+				21CE788314AA01B200029155 /* MGSplitViewController.m */,
+			);
+			path = MGSplitView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +241,8 @@
 				212AEA6714A96D9400E15AD5 /* MainMenuViewController.xib in Resources */,
 				21CE786114A9D5F400029155 /* background-2.png in Resources */,
 				21CE786314A9D66F00029155 /* background-1.png in Resources */,
+				21CE789414AC892400029155 /* ListDetailViewController.xib in Resources */,
+				21CE789914AC8E1D00029155 /* ListViewController2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +260,13 @@
 				21353D8F14A4963B0048D1B5 /* Event.m in Sources */,
 				21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */,
 				212AEA6614A96D9400E15AD5 /* MainMenuViewController.m in Sources */,
+				21CE788414AA01B300029155 /* MGSplitCornersView.m in Sources */,
+				21CE788514AA01B300029155 /* MGSplitDividerView.m in Sources */,
+				21CE788614AA01B300029155 /* MGSplitViewController.m in Sources */,
+				21CE788914AA06D700029155 /* ListMasterViewController.m in Sources */,
+				21CE788C14AC887600029155 /* ListViewController.m in Sources */,
+				21CE789314AC892400029155 /* ListDetailViewController.m in Sources */,
+				21CE789814AC8E1D00029155 /* ListViewController2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

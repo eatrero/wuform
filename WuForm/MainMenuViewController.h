@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddViewController.h"
+#import "MGSplitViewController.h"
 
 @interface MainMenuViewController : UIViewController
 {
@@ -15,6 +16,8 @@
   UIButton *listButton;
   UINavigationController *mainMenuNavigationController;
   AddViewController *addViewController;
+  MGSplitViewController *listViewController;
+//  UIViewController *listViewController;
   NSManagedObjectContext *managedObjectContext;
 }
 
@@ -24,5 +27,6 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction) showAddView:(id)sender;
+- (IBAction) showListView:(id)sender;
 
 @end

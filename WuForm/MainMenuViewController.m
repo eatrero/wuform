@@ -7,6 +7,8 @@
 //
 
 #import "MainMenuViewController.h"
+#import "ListViewController.h"
+#import "ListViewController2.h"
 
 @implementation MainMenuViewController
 
@@ -44,7 +46,8 @@
   addViewController.managedObjectContext = managedObjectContext;
   [self.navigationController setNavigationBarHidden:YES animated:NO];
   
-   [addButton addTarget:self action:@selector(showAddView:) forControlEvents:UIControlEventTouchUpInside];
+  [addButton addTarget:self action:@selector(showAddView:) forControlEvents:UIControlEventTouchUpInside];
+  [listButton addTarget:self action:@selector(showListView:) forControlEvents:UIControlEventTouchUpInside];
   
     // Do any additional setup after loading the view from its nib.
 }
@@ -88,4 +91,28 @@
 }
 
 
+- (IBAction)showListView:(id)sender
+{
+  // 
+  NSLog(@"ShowListView");
+//  listViewController = [[ListViewController alloc] initWithNibName:Nil bundle:Nil];
+  listViewController = [[ListViewController2 alloc] init];
+//  listViewController = [[UIViewController alloc] init];
+  
+  //  [listViewController setMasterViewController:];
+  //  [listViewController setDetailViewController:];
+#if 0  
+	//Set Animation Properties
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration: 0.50];
+	
+	//Hook To MainView
+	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.mainMenuNavigationController.view cache:YES];
+#endif	
+	//Push OnTo NavigationController
+  [mainMenuNavigationController pushViewController:listViewController animated:NO];
+	
+	//Start Animation
+//	[UIView commitAnimations];
+}
 @end
