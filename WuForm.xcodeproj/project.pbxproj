@@ -29,7 +29,6 @@
 		21CE788514AA01B300029155 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788114AA01B200029155 /* MGSplitDividerView.m */; };
 		21CE788614AA01B300029155 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788314AA01B200029155 /* MGSplitViewController.m */; };
 		21CE788914AA06D700029155 /* ListMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788814AA06D600029155 /* ListMasterViewController.m */; };
-		21CE788C14AC887600029155 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788B14AC887500029155 /* ListViewController.m */; };
 		21CE789314AC892400029155 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE789114AC891D00029155 /* ListDetailViewController.m */; };
 		21CE789414AC892400029155 /* ListDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CE789214AC892000029155 /* ListDetailViewController.xib */; };
 		21CE789814AC8E1D00029155 /* ListViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE789614AC8E1B00029155 /* ListViewController2.m */; };
@@ -71,8 +70,6 @@
 		21CE788314AA01B200029155 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
 		21CE788714AA06D600029155 /* ListMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListMasterViewController.h; sourceTree = "<group>"; };
 		21CE788814AA06D600029155 /* ListMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListMasterViewController.m; sourceTree = "<group>"; };
-		21CE788A14AC887500029155 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
-		21CE788B14AC887500029155 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		21CE789014AC891B00029155 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
 		21CE789114AC891D00029155 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
 		21CE789214AC892000029155 /* ListDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListDetailViewController.xib; sourceTree = "<group>"; };
@@ -96,6 +93,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2113F34914ADC62900284C93 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				21CE789514AC8E1B00029155 /* ListViewController2.h */,
+				21CE789614AC8E1B00029155 /* ListViewController2.m */,
+				21CE789714AC8E1D00029155 /* ListViewController2.xib */,
+				21CE788714AA06D600029155 /* ListMasterViewController.h */,
+				21CE788814AA06D600029155 /* ListMasterViewController.m */,
+				21CE789014AC891B00029155 /* ListDetailViewController.h */,
+				21CE789114AC891D00029155 /* ListDetailViewController.m */,
+				21CE789214AC892000029155 /* ListDetailViewController.xib */,
+			);
+			name = ListView;
+			sourceTree = "<group>";
+		};
+		2113F34B14ADC63F00284C93 /* AddView */ = {
+			isa = PBXGroup;
+			children = (
+				21353D7F14A494990048D1B5 /* AddViewController.h */,
+				21353D8014A494990048D1B5 /* AddViewController.m */,
+				21353D8214A494990048D1B5 /* AddViewController.xib */,
+				21C91A4014A80BD00009AC7E /* weddingDateViewController.h */,
+				21C91A4114A80BD00009AC7E /* weddingDateViewController.m */,
+			);
+			name = AddView;
+			sourceTree = "<group>";
+		};
+		2113F34C14ADC72A00284C93 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */,
+				21353D8D14A4963B0048D1B5 /* Event.h */,
+				21353D8E14A4963B0048D1B5 /* Event.m */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		2113F34D14AE886700284C93 /* deleteme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = deleteme;
+			sourceTree = "<group>";
+		};
 		21353D5E14A494990048D1B5 = {
 			isa = PBXGroup;
 			children = (
@@ -127,31 +168,15 @@
 		21353D7314A494990048D1B5 /* WuForm */ = {
 			isa = PBXGroup;
 			children = (
-				21353D7C14A494990048D1B5 /* AppDelegate.h */,
-				21353D7D14A494990048D1B5 /* AppDelegate.m */,
-				21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */,
-				21353D8D14A4963B0048D1B5 /* Event.h */,
-				21353D8E14A4963B0048D1B5 /* Event.m */,
-				21C91A4014A80BD00009AC7E /* weddingDateViewController.h */,
-				212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */,
-				212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */,
-				212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */,
-				21CE788A14AC887500029155 /* ListViewController.h */,
-				21CE788B14AC887500029155 /* ListViewController.m */,
-				21CE789514AC8E1B00029155 /* ListViewController2.h */,
-				21CE789614AC8E1B00029155 /* ListViewController2.m */,
-				21CE789714AC8E1D00029155 /* ListViewController2.xib */,
-				21CE788714AA06D600029155 /* ListMasterViewController.h */,
-				21CE788814AA06D600029155 /* ListMasterViewController.m */,
-				21CE789014AC891B00029155 /* ListDetailViewController.h */,
-				21CE789114AC891D00029155 /* ListDetailViewController.m */,
-				21CE789214AC892000029155 /* ListDetailViewController.xib */,
-				21C91A4114A80BD00009AC7E /* weddingDateViewController.m */,
-				21353D7F14A494990048D1B5 /* AddViewController.h */,
-				21353D8014A494990048D1B5 /* AddViewController.m */,
-				21353D8214A494990048D1B5 /* AddViewController.xib */,
+				2113F34C14ADC72A00284C93 /* Data Model */,
+				2113F34B14ADC63F00284C93 /* AddView */,
+				2113F34914ADC62900284C93 /* ListView */,
 				21CE787D14AA01B200029155 /* MGSplitView */,
 				21353D7414A494990048D1B5 /* Supporting Files */,
+				21353D7C14A494990048D1B5 /* AppDelegate.h */,
+				21353D7D14A494990048D1B5 /* AppDelegate.m */,
+				212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */,
+				212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */,
 			);
 			path = WuForm;
 			sourceTree = "<group>";
@@ -159,6 +184,8 @@
 		21353D7414A494990048D1B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2113F34D14AE886700284C93 /* deleteme */,
+				212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */,
 				21CE786214A9D66F00029155 /* background-1.png */,
 				21CE786014A9D5F400029155 /* background-2.png */,
 				2102A1D514A885AA00288470 /* date-button-highlight.png */,
@@ -211,6 +238,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Panocha Bros";
 			};
 			buildConfigurationList = 21353D6314A494990048D1B5 /* Build configuration list for PBXProject "WuForm" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -264,7 +292,6 @@
 				21CE788514AA01B300029155 /* MGSplitDividerView.m in Sources */,
 				21CE788614AA01B300029155 /* MGSplitViewController.m in Sources */,
 				21CE788914AA06D700029155 /* ListMasterViewController.m in Sources */,
-				21CE788C14AC887600029155 /* ListViewController.m in Sources */,
 				21CE789314AC892400029155 /* ListDetailViewController.m in Sources */,
 				21CE789814AC8E1D00029155 /* ListViewController2.m in Sources */,
 			);

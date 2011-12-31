@@ -42,7 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -58,7 +58,7 @@
   //Hook To MainView
   [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
   
-  [self.navigationController setNavigationBarHidden:NO animated:YES];
+  [self.navigationController setNavigationBarHidden:NO animated:NO];
   
   [super viewWillDisappear:NO];
   

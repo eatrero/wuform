@@ -10,6 +10,9 @@
 
 @implementation ListViewController2
 @synthesize managedObjectContext;
+@synthesize listMasterViewController;
+@synthesize listDetailViewController;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   [self.navigationController setNavigationBarHidden:NO animated:NO];
+#if 0
   splitViewController = [[MGSplitViewController alloc] initWithNibName:Nil bundle:Nil];
   listMasterViewController = [[ListMasterViewController alloc] init];
   listDetailViewController = [[ListDetailViewController alloc] init];
@@ -42,9 +46,65 @@
   splitViewController.detailViewController = listDetailViewController;
   
   splitViewController.showsMasterInPortrait = YES;
-  splitViewController.splitWidth = 4.0; // make it wide enough to actually drag!
+  splitViewController.splitWidth = 0.0; // make it wide enough to actually drag!
   splitViewController.allowsDraggingDivider = NO;
   [self.view addSubview:splitViewController.view];
+#else  
+  listMasterViewController = [[ListMasterViewController alloc] init];
+  listDetailViewController = [[ListDetailViewController alloc] init];
+#endif  
+  
+  UIInterfaceOrientation theOrientation = UIInterfaceOrientationPortrait;
+	CGSize fullSize = [self splitViewSizeForOrientation:theOrientation];
+	float width = fullSize.width;
+	float height = fullSize.height;
+  float _splitPosition = 200.0;
+  float _splitWidth = 1.0;
+    
+	// Layout the master, divider and detail views.
+	CGRect newFrame = CGRectMake(0, 0, width, height);
+	UIViewController *controller;
+	UIView *theView;
+  CGRect masterRect, dividerRect, detailRect;
+  
+  newFrame.size.width = _splitPosition;
+  masterRect = newFrame;
+  
+  newFrame.origin.x += newFrame.size.width;
+  newFrame.size.width = _splitWidth;
+  dividerRect = newFrame;
+  
+  newFrame.origin.x += newFrame.size.width;
+  newFrame.size.width = width - newFrame.origin.x;
+  detailRect = newFrame;
+  
+  // Position master.
+  controller = self.listMasterViewController;
+  if (controller && [controller isKindOfClass:[UIViewController class]])  {
+    theView = controller.view;
+    if (theView) {
+      theView.frame = masterRect;
+      if (!theView.superview) {
+        [controller viewWillAppear:NO];
+        [self.view addSubview:theView];
+        [controller viewDidAppear:NO];
+      }
+    }
+  }
+  
+  // Position detail.
+  controller = self.listDetailViewController;
+  if (controller && [controller isKindOfClass:[UIViewController class]])  {
+    theView = controller.view;
+    if (theView) {
+      theView.frame = detailRect;
+      if (!theView.superview) {
+        [self.view insertSubview:theView aboveSubview:self.listMasterViewController.view];
+      } else {
+        [self.view bringSubviewToFront:theView];
+      }
+    }
+  }
   
   [self.navigationController setNavigationBarHidden:NO animated:NO];
   
@@ -62,5 +122,33 @@
     // Return YES for supported orientations
 	return YES;
 }
+
+- (CGSize)splitViewSizeForOrientation:(UIInterfaceOrientation)theOrientation
+{
+	UIScreen *screen = [UIScreen mainScreen];
+	CGRect fullScreenRect = screen.bounds; // always implicitly in Portrait orientation.
+	CGRect appFrame = screen.applicationFrame;
+	
+	// Find status bar height by checking which dimension of the applicationFrame is narrower than screen bounds.
+	// Little bit ugly looking, but it'll still work even if they change the status bar height in future.
+	float statusBarHeight = MAX((fullScreenRect.size.width - appFrame.size.width), (fullScreenRect.size.height - appFrame.size.height));
+	
+	// Initially assume portrait orientation.
+	float width = fullScreenRect.size.width;
+	float height = fullScreenRect.size.height;
+	
+	// Correct for orientation.
+//	if (UIInterfaceOrientationIsLandscape(theOrientation)) {
+  if(NO){
+		width = height;
+		height = fullScreenRect.size.width;
+	}
+	
+	// Account for status bar, which always subtracts from the height (since it's always at the top of the screen).
+	height -= statusBarHeight;
+	
+	return CGSizeMake(width, height);
+}
+
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ListDetailViewController.h"
+//#import "tmpview.h"
 
 @implementation ListDetailViewController
 
@@ -33,6 +34,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
 }
 
 - (void)viewDidUnload

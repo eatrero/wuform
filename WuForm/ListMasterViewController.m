@@ -16,7 +16,7 @@
   [super viewDidLoad];
   
   self.clearsSelectionOnViewWillAppear = NO;
-  self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+//  self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 }
 
 
@@ -29,7 +29,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	// Return the number of time zone names.
 //	return [inquiryList count];
-  return 10;
+  return 100;
 }
 
 

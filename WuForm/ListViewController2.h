@@ -7,18 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MGSplitViewController.h"
+//#import "MGSplitViewController.h"
 #import "ListMasterViewController.h"
 #import "ListDetailViewController.h"
 
 @interface ListViewController2 : UIViewController
 {
   NSManagedObjectContext *managedObjectContext;
-  MGSplitViewController *splitViewController;
+//  MGSplitViewController *splitViewController;
   ListMasterViewController *listMasterViewController;
   ListDetailViewController *listDetailViewController;
   
 }
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext   *managedObjectContext;
+@property (nonatomic, retain) ListMasterViewController *listMasterViewController;
+@property (nonatomic, retain) ListDetailViewController *listDetailViewController;
+
+
+- (CGSize)splitViewSizeForOrientation:(UIInterfaceOrientation)theOrientation;
 
 @end

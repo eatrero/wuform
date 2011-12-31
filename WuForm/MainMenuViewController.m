@@ -7,7 +7,6 @@
 //
 
 #import "MainMenuViewController.h"
-#import "ListViewController.h"
 #import "ListViewController2.h"
 
 @implementation MainMenuViewController
@@ -55,7 +54,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
-  [self.navigationController setNavigationBarHidden:YES animated:animated];
+  [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidUnload
@@ -95,24 +94,19 @@
 {
   // 
   NSLog(@"ShowListView");
-//  listViewController = [[ListViewController alloc] initWithNibName:Nil bundle:Nil];
   listViewController = [[ListViewController2 alloc] init];
-//  listViewController = [[UIViewController alloc] init];
   
-  //  [listViewController setMasterViewController:];
-  //  [listViewController setDetailViewController:];
-#if 0  
 	//Set Animation Properties
 	[UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration: 0.50];
 	
 	//Hook To MainView
 	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.mainMenuNavigationController.view cache:YES];
-#endif	
+
 	//Push OnTo NavigationController
   [mainMenuNavigationController pushViewController:listViewController animated:NO];
 	
 	//Start Animation
-//	[UIView commitAnimations];
+	[UIView commitAnimations];
 }
 @end

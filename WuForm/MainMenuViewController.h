@@ -16,8 +16,7 @@
   UIButton *listButton;
   UINavigationController *mainMenuNavigationController;
   AddViewController *addViewController;
-  MGSplitViewController *listViewController;
-//  UIViewController *listViewController;
+  UIViewController *listViewController;
   NSManagedObjectContext *managedObjectContext;
 }
 

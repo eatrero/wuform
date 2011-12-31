@@ -28,7 +28,21 @@
     if (!context) {
       // Handle the error.
     }
+
+  // Setup accelerometer for orientation
+  // Get the device object
+  UIDevice *device = [UIDevice currentDevice];
   
+  // Tell it to start monitoring the accelerometer for orientation
+  [device beginGeneratingDeviceOrientationNotifications];
+  
+  // Get the notification center for the app
+  NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+  
+  // Add us as an objserver
+  [nc addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:device];
+  
+  // Setup Main Menu View Controller
   rootViewController = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
   rootViewController.managedObjectContext = context;
   
@@ -41,6 +55,12 @@
   
   
     return YES;
+}
+
+- (void)orientationChanged: (NSNotification *)note
+{
+  // Log the constant that represents the current orientation
+  NSLog(@"orienationChanged: %d", [[note object] orientation]);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
