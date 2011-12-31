@@ -95,6 +95,7 @@
   // 
   NSLog(@"ShowListView");
   listViewController = [[ListViewController2 alloc] init];
+  [listViewController setManagedObjectContext:managedObjectContext];
   
 	//Set Animation Properties
 	[UIView beginAnimations:nil context:NULL];

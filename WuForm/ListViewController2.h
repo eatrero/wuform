@@ -14,7 +14,6 @@
 @interface ListViewController2 : UIViewController
 {
   NSManagedObjectContext *managedObjectContext;
-//  MGSplitViewController *splitViewController;
   ListMasterViewController *listMasterViewController;
   ListDetailViewController *listDetailViewController;
   

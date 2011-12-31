@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController2.h"
+#import "EventStore.h"
 
 @implementation ListViewController2
 @synthesize managedObjectContext;
@@ -35,24 +36,25 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-  [self.navigationController setNavigationBarHidden:NO animated:NO];
-#if 0
-  splitViewController = [[MGSplitViewController alloc] initWithNibName:Nil bundle:Nil];
-  listMasterViewController = [[ListMasterViewController alloc] init];
-  listDetailViewController = [[ListDetailViewController alloc] init];
-  splitViewController.masterViewController = listMasterViewController;
-  splitViewController.detailViewController = listDetailViewController;
+  [super viewDidLoad];
+  // Setup datasource
+  EventStore *eventStore = [EventStore defaultStore];
   
-  splitViewController.showsMasterInPortrait = YES;
-  splitViewController.splitWidth = 0.0; // make it wide enough to actually drag!
-  splitViewController.allowsDraggingDivider = NO;
-  [self.view addSubview:splitViewController.view];
-#else  
+  if(managedObjectContext)
+  {
+    [eventStore setManagedObjectContext:managedObjectContext];
+  }
+  else
+  {
+    NSLog(@"Error... need to set managedObjectContext before loading view of ListViewController instance");
+    abort();
+  }
+
+  
+  // Do any additional setup after loading the view from its nib.
+  [self.navigationController setNavigationBarHidden:NO animated:NO];
   listMasterViewController = [[ListMasterViewController alloc] init];
   listDetailViewController = [[ListDetailViewController alloc] init];
-#endif  
   
   UIInterfaceOrientation theOrientation = UIInterfaceOrientationPortrait;
 	CGSize fullSize = [self splitViewSizeForOrientation:theOrientation];

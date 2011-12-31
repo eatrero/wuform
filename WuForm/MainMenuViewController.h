@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddViewController.h"
-#import "MGSplitViewController.h"
+#import "ListViewController2.h"
 
 @interface MainMenuViewController : UIViewController
 {
@@ -16,7 +16,7 @@
   UIButton *listButton;
   UINavigationController *mainMenuNavigationController;
   AddViewController *addViewController;
-  UIViewController *listViewController;
+  ListViewController2 *listViewController;
   NSManagedObjectContext *managedObjectContext;
 }
 

@@ -7,10 +7,23 @@
 //
 
 #import "ListMasterViewController.h"
-#import "Event.h"
+#import "EventStore.h"
 
 @implementation ListMasterViewController
 @synthesize inquiryList;
+
+- (id) init
+{
+  // Call the superclass's designtated initializer
+  self = [super initWithStyle:UITableViewStyleGrouped];
+  
+  return self;
+}
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+  return [self init];
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -28,8 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	// Return the number of time zone names.
-//	return [inquiryList count];
-  return 100;
+  return [[[EventStore defaultStore] allEvents] count];
 }
 
 
@@ -47,9 +59,12 @@
 	}
 	
 	// Set up the cell.
-	Event *inquiry = [inquiryList objectAtIndex:indexPath.row];
+//	Event *inquiry = [inquiryList objectAtIndex:indexPath.row];
 //	cell.textLabel.text = timeZoneName;
-  cell.textLabel.text = @"Elvis";
+//  cell.textLabel.text = @"Elvis";
+  Event *event = [[[EventStore defaultStore] allEvents] objectAtIndex:indexPath.row];
+//  cell.textLabel.text = timeZoneName;
+  cell.textLabel.text = event.firstName;
 	
 	return cell;
 }
