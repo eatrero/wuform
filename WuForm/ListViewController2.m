@@ -53,8 +53,9 @@
   
   // Do any additional setup after loading the view from its nib.
   [self.navigationController setNavigationBarHidden:NO animated:NO];
-  listMasterViewController = [[ListMasterViewController alloc] init];
   listDetailViewController = [[ListDetailViewController alloc] init];
+  listMasterViewController = [[ListMasterViewController alloc] init];
+  [listMasterViewController setListDetailViewController:listDetailViewController];
   
   UIInterfaceOrientation theOrientation = UIInterfaceOrientationPortrait;
 	CGSize fullSize = [self splitViewSizeForOrientation:theOrientation];
@@ -108,7 +109,11 @@
     }
   }
   
+  // Set Navigation Bar style
   [self.navigationController setNavigationBarHidden:NO animated:NO];
+  
+  // Select first row by default
+  [self.listMasterViewController selectFirstRow];
   
 }
 

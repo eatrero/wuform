@@ -9,5 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface ListDetailViewController : UIViewController
+{
+  UITextField *firstNameTextField;
+  UITextField *lastNameTextField;
+  UITextField *emailTextField;
+  UITextField *weddingDateTextField;  
+}
+
+@property (nonatomic, retain) IBOutlet UITextField *firstNameTextField;
+@property (nonatomic, retain) IBOutlet UITextField *lastNameTextField;
+@property (nonatomic, retain) IBOutlet UITextField *emailTextField;
+@property (nonatomic, retain) IBOutlet UITextField *weddingDateTextField;
 
 @end

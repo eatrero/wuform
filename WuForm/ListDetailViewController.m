@@ -10,6 +10,10 @@
 //#import "tmpview.h"
 
 @implementation ListDetailViewController
+@synthesize firstNameTextField;
+@synthesize lastNameTextField;
+@synthesize emailTextField;
+@synthesize weddingDateTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListDetailViewController.h"
 
 @interface ListMasterViewController : UITableViewController
 {
   NSArray *inquiryList;
+  ListDetailViewController *listDetailViewController;
 }
 @property (nonatomic, retain) NSArray *inquiryList;
+@property (nonatomic, retain) ListDetailViewController *listDetailViewController;
+- (void)selectFirstRow;
 
 @end
