@@ -9,7 +9,7 @@
 #import "weddingDateViewController.h"
 
 #define MAX_DATE_IN_SEC 60*60*24*365.25*10.0  // 10 years
-#define REFDATE_TO_2012 (60*60*24*365.25*11.0 - 60*60*24)  // 11 years
+#define REFDATE_TO_2012 (60*60*24*(365.25*11.0+1) - 60*60*24)  // 11 years
 
 @implementation WeddingDateViewController
 
