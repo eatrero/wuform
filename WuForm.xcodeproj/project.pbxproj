@@ -27,6 +27,7 @@
 		210557EF14B28FEE00A64089 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 210557E614B28FEE00A64089 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		210557F114B291BB00A64089 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 210557F014B291BB00A64089 /* libz.dylib */; };
 		210557F514B2B8F000A64089 /* EventSyncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 210557F414B2B8F000A64089 /* EventSyncher.m */; };
+		210557F814B2F38A00A64089 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 210557F714B2F38900A64089 /* Default-Portrait~ipad.png */; };
 		212AEA6614A96D9400E15AD5 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */; };
 		212AEA6714A96D9400E15AD5 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */; };
 		21353D6E14A494990048D1B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D6D14A494990048D1B5 /* UIKit.framework */; };
@@ -87,6 +88,7 @@
 		210557F014B291BB00A64089 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		210557F314B2B8F000A64089 /* EventSyncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSyncher.h; sourceTree = "<group>"; };
 		210557F414B2B8F000A64089 /* EventSyncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSyncher.m; sourceTree = "<group>"; };
+		210557F714B2F38900A64089 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		21353D5E14A494990048D1B5 = {
 			isa = PBXGroup;
 			children = (
+				210557F714B2F38900A64089 /* Default-Portrait~ipad.png */,
 				21353D7314A494990048D1B5 /* WuForm */,
 				21353D6C14A494990048D1B5 /* Frameworks */,
 				21353D6A14A494990048D1B5 /* Products */,
@@ -365,6 +368,7 @@
 				21CE789914AC8E1D00029155 /* ListViewController2.xib in Resources */,
 				2105579814B1BDA100A64089 /* Icon-72.png in Resources */,
 				2105579B14B1BDB500A64089 /* Icon-72.png in Resources */,
+				210557F814B2F38A00A64089 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
