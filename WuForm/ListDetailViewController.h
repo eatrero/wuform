@@ -7,18 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface ListDetailViewController : UIViewController
 {
+  Event       *event;
   UITextField *firstNameTextField;
   UITextField *lastNameTextField;
   UITextField *emailTextField;
-  UITextField *weddingDateTextField;  
+  UITextField *weddingDateTextField;
+  UILabel     *syncLabel;
+  UIButton    *syncButton;
 }
 
+@property (nonatomic, retain) IBOutlet Event       *event;
 @property (nonatomic, retain) IBOutlet UITextField *firstNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *lastNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *emailTextField;
 @property (nonatomic, retain) IBOutlet UITextField *weddingDateTextField;
+@property (nonatomic, retain) IBOutlet UILabel     *syncLabel;
+@property (nonatomic, retain) IBOutlet UIButton    *syncButton;
+
+- (IBAction)syncEvent:(id)sender;
+- (void)showEvent;
 
 @end

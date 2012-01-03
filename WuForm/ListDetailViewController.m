@@ -7,13 +7,16 @@
 //
 
 #import "ListDetailViewController.h"
-//#import "tmpview.h"
+#import "EventSyncher.h"
 
 @implementation ListDetailViewController
+@synthesize event;
 @synthesize firstNameTextField;
 @synthesize lastNameTextField;
 @synthesize emailTextField;
 @synthesize weddingDateTextField;
+@synthesize syncLabel;
+@synthesize syncButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,6 +55,38 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (IBAction)syncEvent:(id)sender
+{
+  // Start sync here
+  // NSError *error = nil;
+  EventSyncher *sync = [[EventSyncher alloc] init];
+  if(![sync startSync:event])
+  {
+    NSLog(@"ERROR: UNABLE to SYNC");
+  }
+}
+
+- (void)showEvent
+{
+  // Set listDetailViewController 
+  firstNameTextField.text = event.firstName;  
+  lastNameTextField.text = event.lastName;  
+  emailTextField.text = event.emailAddress;  
+  
+  if (![event.synched boolValue]) {
+    syncLabel.text = @"NOT SYNCHED";  
+    NSLog(@"Not Synched");
+  }
+  else{
+    syncLabel.text = @"SYNCHED";      
+  }
+  
+  NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+  weddingDateTextField.text = [dateFormatter stringFromDate:event.weddingDate];;  
+  
 }
 
 @end

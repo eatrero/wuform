@@ -12,6 +12,7 @@
 @implementation ListMasterViewController
 @synthesize inquiryList;
 @synthesize listDetailViewController;
+@synthesize selectedEvent;
 
 - (id) init
 {
@@ -82,12 +83,10 @@
 {
 	// When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
   Event *event = [[[EventStore defaultStore] allEvents] objectAtIndex:indexPath.row];
-  listDetailViewController.firstNameTextField.text = event.firstName;  
-  listDetailViewController.lastNameTextField.text = event.lastName;  
-  listDetailViewController.emailTextField.text = event.emailAddress;  
-  NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-  [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-  listDetailViewController.weddingDateTextField.text = [dateFormatter stringFromDate:event.weddingDate];;  
+  [self setSelectedEvent:event];
+  [[self listDetailViewController] setEvent:event];
+  [[self listDetailViewController] showEvent];
+  
 }
 
 - (void)selectFirstRow
