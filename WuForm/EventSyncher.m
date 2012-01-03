@@ -28,7 +28,7 @@ NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
   NSString *dateString = [dateFormatter stringFromDate:event.weddingDate];  
   NSLog(@"%@", dateString);
 
-//  [request addPostValue:@"20111215" forKey:@"Field4"];
+  [request addPostValue:dateString forKey:@"Field4"];
   [request addPostValue:event.emailAddress forKey:@"Field5"];
   
   [request startSynchronous];
