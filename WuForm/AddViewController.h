@@ -37,5 +37,6 @@
 - (IBAction)addEvent:(id)sender;
 - (IBAction)setDate:(id)sender;
 - (void)dateSelected:(NSDate *)date;
+- (void)resetForm;
 
 @end

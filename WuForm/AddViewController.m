@@ -32,22 +32,23 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-    self.eventsArray = nil;
-    self.addButton2 = nil;
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
+  // e.g. self.myOutlet = nil;
+  self.eventsArray = nil;
+  self.addButton2 = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+  [super viewWillAppear:animated];
+  [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+  [super viewDidAppear:animated];
+  [self resetForm];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -240,12 +241,19 @@
   [event setWeddingDate:weddingDate];
   [event setSynched:[NSNumber numberWithBool:NO]];
   
+  CFUUIDRef theUUID = CFUUIDCreate(NULL);
+  CFStringRef theUUIDCFString = CFUUIDCreateString(NULL, theUUID);  
+  NSString *theUUIDString = (__bridge_transfer NSString *) theUUIDCFString;
+  NSLog(@"uuid = %@", theUUIDString);
+  [event setUuid:theUUIDString];
+   
+  
   NSError *error = nil;
   if (![managedObjectContext save:&error]) {
     // Handle the error.
   }    
   
-#if 1
+#ifdef TEST_ADD
   // test
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event"
@@ -313,4 +321,12 @@
   [popoverController dismissPopoverAnimated:YES];
 }
 
+- (void)resetForm
+{
+  [[self firstNameTextField] setText:nil];
+  [[self lastNameTextField] setText:nil];
+  [[self emailTextField] setText:nil];
+  [[[self setDateButton] titleLabel] setText:@"WEDDING DATE"];
+  
+}
 @end

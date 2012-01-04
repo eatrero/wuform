@@ -23,4 +23,5 @@
 + (EventStore *) defaultStore;
 
 - (NSArray *)allEvents;
+- (Boolean)updateEvent:(Event *)event;
 @end

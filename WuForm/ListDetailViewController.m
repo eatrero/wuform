@@ -66,6 +66,18 @@
   {
     NSLog(@"ERROR: UNABLE to SYNC");
   }
+  
+  [event setSynched:[NSNumber numberWithBool:YES]];
+  
+  NSDictionary *extraInfo = [NSDictionary dictionaryWithObject:event forKey:@"updatedEvent"]; 
+  
+  NSNotification *note = [NSNotification notificationWithName:@"UpdateEvent" 
+                                                       object:self 
+                                                     userInfo:extraInfo]; 
+  [[NSNotificationCenter defaultCenter] postNotification:note];
+  
+  // refresh the display
+  [self showEvent];
 }
 
 - (void)showEvent
@@ -85,7 +97,17 @@
   
   NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-  weddingDateTextField.text = [dateFormatter stringFromDate:event.weddingDate];;  
+  weddingDateTextField.text = [dateFormatter stringFromDate:event.weddingDate]; 
+  
+  NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+  NSLog(@"%@ %@ %@ %@ %@ %@", 
+        event.firstName, 
+        event.lastName,
+        event.emailAddress,
+        [dateFormatter stringFromDate:event.weddingDate],
+        [numberFormatter stringFromNumber:event.synched],
+        event.uuid);
+  
   
 }
 

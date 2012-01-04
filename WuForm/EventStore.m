@@ -41,6 +41,13 @@ static EventStore *defaultStore = nil;
   {
     NSLog(@"error fetching from managedObjectContext! %@, %@", error, [error userInfo]);
   }
+  
+  NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+  [nc addObserver:self                    // The object self will be sent 
+         selector:@selector(updateEvent:) // retrieveDog: 
+             name:@"UpdateEvent"          // when @"UpdateEvent" is posted 
+           object:nil];                   // by any object.
+                                               
 }
 
 - (NSManagedObjectContext *) managedObjectContext
@@ -64,6 +71,48 @@ static EventStore *defaultStore = nil;
   return [self defaultStore];
 }
 
+- (Boolean)updateEvent:(NSNotification *)note
+{
+  if(!managedObjectContext)
+  {
+    NSLog(@"invalid managedObjectContext!");
+    
+    return NO;
+  }
+  
+  NSDictionary *userInfo = [note userInfo];
+  Event *event = [userInfo objectForKey:@"updatedEvent"];
+  
+  if(!event)
+  {
+    NSLog(@"invalid updatedEvent!");
+    
+    return NO;
+  }
+
+  NSError *error;
+  Event *tmpEvent;
+  for (tmpEvent in allEvents)
+  {
+    if([[tmpEvent uuid] isEqualToString:[event uuid]])
+    {
+      NSLog(@"Event located!");      
+      [tmpEvent setFirstName:[event firstName]];
+      [tmpEvent setLastName:[event lastName]];
+      [tmpEvent setEmailAddress:[event emailAddress]];
+      [tmpEvent setSynched:[event synched]];
+      
+      if (![managedObjectContext save:&error]) {
+        // Handle the error.
+        NSLog(@"Error saving context: %@", error);      
+      }    
+      return YES;
+    }
+  }  
+  NSLog(@"Event not found!");
+  return NO;
+}
+
 - (id)init
 {
   // If we already have an instance of PossesionStore...
@@ -81,9 +130,15 @@ static EventStore *defaultStore = nil;
   return self;
 }
 
+- (void)dealloc
+{
+  allEvents = nil;
+}
+
 - (NSArray *)allEvents
 {
   return allEvents;
 }
+
 
 @end

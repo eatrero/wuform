@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * emailAddress;
 @property (nonatomic, retain) NSNumber * synched;
+@property (nonatomic, retain) NSString * uuid;
 
 @end

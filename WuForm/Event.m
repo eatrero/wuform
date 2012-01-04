@@ -17,5 +17,6 @@
 @dynamic lastName;
 @dynamic emailAddress;
 @dynamic synched;
+@dynamic uuid;
 
 @end
