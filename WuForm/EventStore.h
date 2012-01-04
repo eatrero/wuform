@@ -23,5 +23,6 @@
 + (EventStore *) defaultStore;
 
 - (NSArray *)allEvents;
-- (Boolean)updateEvent:(Event *)event;
+- (void)updateEvent:(NSNotification *)note;
+- (void)removeEvent:(Event *)event;
 @end

@@ -71,13 +71,14 @@ static EventStore *defaultStore = nil;
   return [self defaultStore];
 }
 
-- (Boolean)updateEvent:(NSNotification *)note
+// respond to update event notifications
+- (void)updateEvent:(NSNotification *)note
 {
   if(!managedObjectContext)
   {
-    NSLog(@"invalid managedObjectContext!");
+    NSLog(@"EventStore:updateEvent invalid managedObjectContext!");
     
-    return NO;
+    return;
   }
   
   NSDictionary *userInfo = [note userInfo];
@@ -87,7 +88,7 @@ static EventStore *defaultStore = nil;
   {
     NSLog(@"invalid updatedEvent!");
     
-    return NO;
+    return;
   }
 
   NSError *error;
@@ -96,7 +97,7 @@ static EventStore *defaultStore = nil;
   {
     if([[tmpEvent uuid] isEqualToString:[event uuid]])
     {
-      NSLog(@"Event located!");      
+      NSLog(@"updateEvent: Event located!");      
       [tmpEvent setFirstName:[event firstName]];
       [tmpEvent setLastName:[event lastName]];
       [tmpEvent setEmailAddress:[event emailAddress]];
@@ -104,14 +105,56 @@ static EventStore *defaultStore = nil;
       
       if (![managedObjectContext save:&error]) {
         // Handle the error.
-        NSLog(@"Error saving context: %@", error);      
+        NSLog(@"updateEvent: Error saving context: %@", error);      
       }    
-      return YES;
+      return;
     }
   }  
-  NSLog(@"Event not found!");
-  return NO;
+  NSLog(@"updateEvent: Event not found!");
+  return;
 }
+
+// respond to remove event notifications
+- (void)removeEvent:(Event *)event
+{
+  if(!managedObjectContext)
+  {
+    NSLog(@"EventStore:updateEvent invalid managedObjectContext!");
+    
+    return;
+  }
+    
+  if(!event)
+  {
+    NSLog(@"invalid removeEvent!");
+    
+    return;
+  }
+  
+  NSError *error;
+  Event *tmpEvent;
+  for (tmpEvent in allEvents)
+  {
+    if([[tmpEvent uuid] isEqualToString:[event uuid]])
+    {
+      NSLog(@"removeEvent: Event located!");
+      
+      [allEvents removeObject:tmpEvent];
+      
+      [managedObjectContext deleteObject:tmpEvent];
+      
+      if (![managedObjectContext save:&error]) {
+        // Handle the error.
+        NSLog(@"removeEvent: Error saving context: %@", error);      
+      }    
+      return;
+    }
+  }  
+  NSLog(@"removeEvent: Event not found!");
+  return;
+  
+}
+
 
 - (id)init
 {
