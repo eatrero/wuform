@@ -14,6 +14,8 @@
 {
   NSMutableArray *eventsArray;
   NSManagedObjectContext *managedObjectContext;
+  UINavigationController *mainMenuViewController;
+  UIViewController *showAddSuccessfulView;
   UIButton *addButton2;
   UIPopoverController *popoverController;
   WeddingDateViewController *popoverViewController;
@@ -25,6 +27,7 @@
 }
 @property (nonatomic, retain) NSMutableArray *eventsArray;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) UINavigationController *mainMenuViewController;
 @property (nonatomic, retain) UIButton *addButton2;
 @property (nonatomic, retain) UIViewController *popoverViewController;
 @property (nonatomic, retain) IBOutlet UITextField *firstNameTextField;
@@ -38,5 +41,7 @@
 - (IBAction)setDate:(id)sender;
 - (void)dateSelected:(NSDate *)date;
 - (void)resetForm;
+- (void)showForm;
+- (void)hideForm;
 
 @end

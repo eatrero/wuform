@@ -41,6 +41,8 @@
 		21353D8C14A495E00048D1B5 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8A14A495E00048D1B5 /* Entry.xcdatamodeld */; };
 		21353D8F14A4963B0048D1B5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 21353D8E14A4963B0048D1B5 /* Event.m */; };
 		21353D9114A497020048D1B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D9014A497020048D1B5 /* CoreData.framework */; };
+		21B535D614B4F7470054B7BB /* AddSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B535D414B4F7470054B7BB /* AddSuccessfulViewController.m */; };
+		21B535D714B4F7470054B7BB /* AddSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B535D514B4F7470054B7BB /* AddSuccessfulViewController.xib */; };
 		21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C91A4114A80BD00009AC7E /* weddingDateViewController.m */; };
 		21CE786114A9D5F400029155 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786014A9D5F400029155 /* background-2.png */; };
 		21CE786314A9D66F00029155 /* background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786214A9D66F00029155 /* background-1.png */; };
@@ -109,6 +111,9 @@
 		21353D8D14A4963B0048D1B5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		21353D8E14A4963B0048D1B5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		21353D9014A497020048D1B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		21B535D314B4F7470054B7BB /* AddSuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSuccessfulViewController.h; sourceTree = "<group>"; };
+		21B535D414B4F7470054B7BB /* AddSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSuccessfulViewController.m; sourceTree = "<group>"; };
+		21B535D514B4F7470054B7BB /* AddSuccessfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSuccessfulViewController.xib; sourceTree = "<group>"; };
 		21C91A4014A80BD00009AC7E /* weddingDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weddingDateViewController.h; sourceTree = "<group>"; };
 		21C91A4114A80BD00009AC7E /* weddingDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weddingDateViewController.m; sourceTree = "<group>"; };
 		21CE786014A9D5F400029155 /* background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-2.png"; sourceTree = "<group>"; };
@@ -200,11 +205,11 @@
 		2113F34914ADC62900284C93 /* ListView */ = {
 			isa = PBXGroup;
 			children = (
+				21CE788814AA06D600029155 /* ListMasterViewController.m */,
 				21CE789514AC8E1B00029155 /* ListViewController2.h */,
 				21CE789614AC8E1B00029155 /* ListViewController2.m */,
 				21CE789714AC8E1D00029155 /* ListViewController2.xib */,
 				21CE788714AA06D600029155 /* ListMasterViewController.h */,
-				21CE788814AA06D600029155 /* ListMasterViewController.m */,
 				21CE789014AC891B00029155 /* ListDetailViewController.h */,
 				21CE789114AC891D00029155 /* ListDetailViewController.m */,
 				21CE789214AC892000029155 /* ListDetailViewController.xib */,
@@ -217,6 +222,9 @@
 			children = (
 				21353D7F14A494990048D1B5 /* AddViewController.h */,
 				21353D8014A494990048D1B5 /* AddViewController.m */,
+				21B535D314B4F7470054B7BB /* AddSuccessfulViewController.h */,
+				21B535D414B4F7470054B7BB /* AddSuccessfulViewController.m */,
+				21B535D514B4F7470054B7BB /* AddSuccessfulViewController.xib */,
 				21353D8214A494990048D1B5 /* AddViewController.xib */,
 				21C91A4014A80BD00009AC7E /* weddingDateViewController.h */,
 				21C91A4114A80BD00009AC7E /* weddingDateViewController.m */,
@@ -369,6 +377,7 @@
 				2105579814B1BDA100A64089 /* Icon-72.png in Resources */,
 				2105579B14B1BDB500A64089 /* Icon-72.png in Resources */,
 				210557F814B2F38A00A64089 /* Default-Portrait~ipad.png in Resources */,
+				21B535D714B4F7470054B7BB /* AddSuccessfulViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +410,7 @@
 				210557EE14B28FEE00A64089 /* ASIInputStream.m in Sources */,
 				210557EF14B28FEE00A64089 /* ASINetworkQueue.m in Sources */,
 				210557F514B2B8F000A64089 /* EventSyncher.m in Sources */,
+				21B535D614B4F7470054B7BB /* AddSuccessfulViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

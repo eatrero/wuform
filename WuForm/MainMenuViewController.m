@@ -8,6 +8,7 @@
 
 #import "MainMenuViewController.h"
 #import "ListViewController2.h"
+#import "AddSuccessfulViewController.h"
 
 @implementation MainMenuViewController
 
@@ -40,8 +41,9 @@
     [super viewDidLoad];
   
   self.title = @"Atrero Photography";
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-2.png"]];
+  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-2.png"]];
   addViewController = [[AddViewController alloc] init];
+  [addViewController setMainMenuViewController:[self mainMenuNavigationController]];
   addViewController.managedObjectContext = managedObjectContext;
   [self.navigationController setNavigationBarHidden:YES animated:NO];
   
@@ -88,7 +90,6 @@
 	//Start Animation
 	[UIView commitAnimations];
 }
-
 
 - (IBAction)showListView:(id)sender
 {

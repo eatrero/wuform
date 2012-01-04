@@ -8,12 +8,14 @@
 
 #import <CoreData/CoreData.h>
 #import "AddViewController.h"
+#import "AddSuccessfulViewController.h"
 #import "Event.h"
 
 
 @implementation AddViewController
 @synthesize eventsArray;
 @synthesize managedObjectContext;
+@synthesize mainMenuViewController;
 @synthesize addButton2;
 @synthesize popoverViewController;
 @synthesize firstNameTextField;
@@ -281,6 +283,11 @@
   
   [eventsArray insertObject:event atIndex:0];
 //  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	//Push OnTo NavigationController
+  AddSuccessfulViewController *addSuccessfulViewController = [[AddSuccessfulViewController alloc] init];
+  [addSuccessfulViewController setMainMenuViewController:mainMenuViewController];
+  [[self mainMenuViewController] pushViewController:addSuccessfulViewController animated:YES];
+//  [self showForm];
   
 }
 
@@ -328,4 +335,21 @@
   [[[self setDateButton] titleLabel] setText:@"WEDDING DATE"];
   
 }
+
+- (void)hideForm
+{
+  [[self firstNameTextField] setHidden:YES];
+  [[self lastNameTextField] setHidden:YES];
+  [[self emailTextField] setHidden:YES];
+  [[self setDateButton] setHidden:YES];  
+}
+
+- (void)showForm
+{
+  [[self firstNameTextField] setHidden:NO];
+  [[self lastNameTextField] setHidden:NO];
+  [[self emailTextField] setHidden:NO];
+  [[self setDateButton] setHidden:NO];  
+}
+
 @end
