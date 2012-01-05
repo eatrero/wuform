@@ -13,6 +13,8 @@
 
 @implementation EventSyncher
 NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
+NSString * const APIHash = @"r7x2x3";
+NSString * const APIsubdomain = @"atrerophoto";
 
 - (id)init
 {
@@ -27,7 +29,10 @@ NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
 
 - (Boolean) startSync:(Event *)event
 {
-  NSURL *url = [NSURL URLWithString:@"https://atrerophoto.wufoo.com/api/v3/forms/r7x2x3/entries.xml"];
+  NSString *wufooURL = [NSString stringWithFormat:@"https://%@.wufoo.com/api/v3/forms/%@/entries.xml",APIsubdomain,APIHash];
+  
+  
+  NSURL *url = [NSURL URLWithString:wufooURL];
   myRequest = [ASIFormDataRequest requestWithURL:url];
   [myRequest setDelegate:self];
   
