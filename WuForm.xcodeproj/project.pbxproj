@@ -205,11 +205,11 @@
 		2113F34914ADC62900284C93 /* ListView */ = {
 			isa = PBXGroup;
 			children = (
-				21CE788814AA06D600029155 /* ListMasterViewController.m */,
 				21CE789514AC8E1B00029155 /* ListViewController2.h */,
 				21CE789614AC8E1B00029155 /* ListViewController2.m */,
 				21CE789714AC8E1D00029155 /* ListViewController2.xib */,
 				21CE788714AA06D600029155 /* ListMasterViewController.h */,
+				21CE788814AA06D600029155 /* ListMasterViewController.m */,
 				21CE789014AC891B00029155 /* ListDetailViewController.h */,
 				21CE789114AC891D00029155 /* ListDetailViewController.m */,
 				21CE789214AC892000029155 /* ListDetailViewController.xib */,

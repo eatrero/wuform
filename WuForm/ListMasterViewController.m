@@ -43,7 +43,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	// Return the number of time zone names.
-  return [[[EventStore defaultStore] allEvents] count];
+  NSInteger count = [[[EventStore defaultStore] allEvents] count];
+  if (count==0){
+    [listDetailViewController hideDisplay];
+  }
+  else {
+    [listDetailViewController showDisplay];    
+  }
+  return count;
 }
 
 

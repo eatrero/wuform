@@ -22,7 +22,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+      // Custom initialization
+      sync = [[EventSyncher alloc] init];
     }
     return self;
 }
@@ -61,23 +62,10 @@
 {
   // Start sync here
   // NSError *error = nil;
-  EventSyncher *sync = [[EventSyncher alloc] init];
   if(![sync startSync:event])
   {
     NSLog(@"ERROR: UNABLE to SYNC");
-  }
-  
-  [event setSynched:[NSNumber numberWithBool:YES]];
-  
-  NSDictionary *extraInfo = [NSDictionary dictionaryWithObject:event forKey:@"updatedEvent"]; 
-  
-  NSNotification *note = [NSNotification notificationWithName:@"UpdateEvent" 
-                                                       object:self 
-                                                     userInfo:extraInfo]; 
-  [[NSNotificationCenter defaultCenter] postNotification:note];
-  
-  // refresh the display
-  [self showEvent];
+  } 
 }
 
 - (void)showEvent
@@ -109,6 +97,26 @@
         event.uuid);
   
   
+}
+
+- (void)hideDisplay
+{
+  [[self firstNameTextField] setHidden:YES];
+  [[self lastNameTextField] setHidden:YES];
+  [[self emailTextField] setHidden:YES];
+  [[self weddingDateTextField] setHidden:YES];
+  [[self syncLabel] setHidden:YES];
+  [[self syncButton] setHidden:YES];
+}
+
+- (void)showDisplay
+{
+  [[self firstNameTextField] setHidden:NO];
+  [[self lastNameTextField] setHidden:NO];
+  [[self emailTextField] setHidden:NO];
+  [[self weddingDateTextField] setHidden:NO];
+  [[self syncLabel] setHidden:NO];
+  [[self syncButton] setHidden:NO];
 }
 
 @end

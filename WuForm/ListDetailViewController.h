@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "EventSyncher.h"
 
 @interface ListDetailViewController : UIViewController
 {
@@ -18,6 +19,7 @@
   UITextField *weddingDateTextField;
   UILabel     *syncLabel;
   UIButton    *syncButton;
+  EventSyncher *sync;
 }
 
 @property (nonatomic, retain) IBOutlet Event       *event;
@@ -30,5 +32,7 @@
 
 - (IBAction)syncEvent:(id)sender;
 - (void)showEvent;
+- (void)hideDisplay;
+- (void)showDisplay;
 
 @end
