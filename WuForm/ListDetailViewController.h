@@ -32,6 +32,7 @@
 
 - (IBAction)syncEvent:(id)sender;
 - (void)showEvent;
+- (void)updateDisplay:(NSNotification *)note;
 - (void)hideDisplay;
 - (void)showDisplay;
 

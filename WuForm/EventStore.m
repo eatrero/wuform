@@ -107,6 +107,13 @@ static EventStore *defaultStore = nil;
         // Handle the error.
         NSLog(@"updateEvent: Error saving context: %@", error);      
       }    
+      NSDictionary *extraInfo = [NSDictionary dictionaryWithObject:event forKey:@"updatedDisplay"]; 
+      
+      NSNotification *note = [NSNotification notificationWithName:@"UpdateDisplay" 
+                                                           object:self 
+                                                         userInfo:extraInfo]; 
+      [[NSNotificationCenter defaultCenter] postNotification:note];
+      
       return;
     }
   }  

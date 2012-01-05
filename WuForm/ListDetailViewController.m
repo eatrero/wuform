@@ -24,6 +24,11 @@
     if (self) {
       // Custom initialization
       sync = [[EventSyncher alloc] init];
+      NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+      [nc addObserver:self                      // The object self will be sent 
+             selector:@selector(updateDisplay:) // updateDisplay: 
+                 name:@"UpdateDisplay"          // when @"UpdateDisplay" is posted 
+               object:nil];                     // by any object.
     }
     return self;
 }
@@ -97,6 +102,30 @@
         event.uuid);
   
   
+}
+
+- (void)updateDisplay:(NSNotification *)note
+{
+  NSDictionary *userInfo = [note userInfo];
+  Event *updatedEvent = [userInfo objectForKey:@"updatedDisplay"];
+  
+  if(!updatedEvent)
+  {
+    NSLog(@"invalid updatedEvent!");
+    
+    return;
+  }
+
+  if([[updatedEvent uuid] isEqualToString:[event uuid]])
+  {
+    [event setFirstName:[updatedEvent firstName]];
+    [event setLastName:[updatedEvent lastName]];
+    [event setWeddingDate:[updatedEvent weddingDate]];
+    [event setEmailAddress:[updatedEvent emailAddress]];
+    [event setSynched:[updatedEvent synched]];
+    
+    [self showEvent];
+  }  
 }
 
 - (void)hideDisplay
