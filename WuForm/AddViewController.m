@@ -312,8 +312,17 @@
 // A delegate method called by the URL text field when the user taps the Return 
 // key.  We just dismiss the keyboard.
 {
-  [textField resignFirstResponder];
-  return NO;
+  NSInteger nextTag = textField.tag + 1;
+  // Try to find next responder
+  UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+  if (nextResponder) {
+    // Found next responder, so set it.
+    [nextResponder becomeFirstResponder];
+  } else {
+    // Not found, so remove keyboard.
+    [textField resignFirstResponder];
+  }
+  return NO; // We do not want UITextField to insert line-breaks.
 }
 
 - (void)dateSelected:(NSDate *)date;

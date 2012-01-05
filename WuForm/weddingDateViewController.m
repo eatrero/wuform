@@ -42,6 +42,12 @@
 }
 */
 
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [weddingDatePicker setDate:[[NSDate alloc] initWithTimeIntervalSinceNow:0.0]];
+
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -51,7 +57,7 @@
   [weddingDatePicker setDatePickerMode:UIDatePickerModeDate];
   [weddingDatePicker setMinimumDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:REFDATE_TO_2012]];
   [weddingDatePicker setMaximumDate:[[NSDate alloc] initWithTimeIntervalSinceNow:MAX_DATE_IN_SEC]];
-  [weddingDatePicker setDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:REFDATE_TO_2012]];
+  [weddingDatePicker setDate:[[NSDate alloc] initWithTimeIntervalSinceNow:0.0]];
   
   [self.view addSubview:weddingDatePicker];
   

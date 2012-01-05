@@ -222,10 +222,10 @@
 			children = (
 				21353D7F14A494990048D1B5 /* AddViewController.h */,
 				21353D8014A494990048D1B5 /* AddViewController.m */,
+				21353D8214A494990048D1B5 /* AddViewController.xib */,
 				21B535D314B4F7470054B7BB /* AddSuccessfulViewController.h */,
 				21B535D414B4F7470054B7BB /* AddSuccessfulViewController.m */,
 				21B535D514B4F7470054B7BB /* AddSuccessfulViewController.xib */,
-				21353D8214A494990048D1B5 /* AddViewController.xib */,
 				21C91A4014A80BD00009AC7E /* weddingDateViewController.h */,
 				21C91A4114A80BD00009AC7E /* weddingDateViewController.m */,
 			);

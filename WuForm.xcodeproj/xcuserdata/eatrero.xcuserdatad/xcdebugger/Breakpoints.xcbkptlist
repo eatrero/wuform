@@ -247,11 +247,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/weddingDateViewController.m"
-         timestampString = "346603595.787931"
+         timestampString = "347442631.866118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-finishedDateSelection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1163,6 +1163,20 @@
          startingLineNumber = "112"
          endingLineNumber = "112"
          landmarkName = "-updateDisplay:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "WuForm/weddingDateViewController.m"
+         timestampString = "347442631.866118"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "55"
+         endingLineNumber = "55"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
