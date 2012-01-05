@@ -97,6 +97,19 @@
     // Delete the row from the data source
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     
+    if ([self.tableView numberOfSections] > 0 && [self.tableView numberOfRowsInSection:0] > 0) {
+      if(indexPath.row>1)
+      {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:0];
+        [self.tableView selectRowAtIndexPath:newIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+        [self tableView:self.tableView didSelectRowAtIndexPath:newIndexPath];
+      }
+      else
+      {
+        [self selectFirstRow];
+      }
+      
+    }
   }   
   else if (editingStyle == UITableViewCellEditingStyleInsert) {
     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

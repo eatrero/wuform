@@ -71,6 +71,8 @@ NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
 {
   NSError *error = [request error];
   NSLog(@"sync request error:%@",error);
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Synch Error" message:@"There was a problem connecting to server.  Check if you are currently connected to the internet or whether if Airplane Mode is enabled." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+  [alert show];
 }
 
 - (void)requestStarted:(ASIHTTPRequest *)request
