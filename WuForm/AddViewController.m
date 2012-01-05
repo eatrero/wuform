@@ -39,6 +39,7 @@
   // e.g. self.myOutlet = nil;
   self.eventsArray = nil;
   self.addButton2 = nil;
+  newEvent = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -120,6 +121,7 @@
   NSError *error = nil;
   NSMutableArray *mutableFetchResults = [[managedObjectContext
                                           executeFetchRequest:request error:&error] mutableCopy];
+    
   if (mutableFetchResults == nil) {
     // Handle the error.
   }    
@@ -230,6 +232,12 @@
 
 - (IBAction)addEvent:(id)sender {
   
+  if(![self isValidEvent])
+  {
+    NSLog(@"Invalid Entry.");
+    return;
+  }
+  
   // Create and configure a new instance of the Event entity.
   Event *event = (Event *)[NSEntityDescription
                            insertNewObjectForEntityForName:@"Event"
@@ -329,6 +337,8 @@
 {
   NSLog(@"date Selected delegate");  
   self.weddingDate = date;
+  [newEvent setWeddingDate:date];
+  [self isValidEvent];
   NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
   setDateButton.titleLabel.text = [dateFormatter stringFromDate:date];
@@ -342,7 +352,7 @@
   [[self lastNameTextField] setText:nil];
   [[self emailTextField] setText:nil];
   [[[self setDateButton] titleLabel] setText:@"WEDDING DATE"];
-  
+  [self disableSaveButton];  
 }
 
 - (void)hideForm
@@ -360,5 +370,72 @@
   [[self emailTextField] setHidden:NO];
   [[self setDateButton] setHidden:NO];  
 }
+
+- (BOOL)isValidEvent
+{
+  // check for valid email
+  if (![self isValidEmail:[[self emailTextField] text]]) {
+    [self disableSaveButton];
+    return NO;
+  }
+  
+  // check for valid first name & last name
+  if (![[self firstNameTextField] text] || ![[self lastNameTextField] text])
+  {
+    [self disableSaveButton];
+    return NO;    
+  }
+  
+  // check for valid wedding date
+  if (![self weddingDate])
+  {
+    [self disableSaveButton];
+    return NO;    
+  }
+  [self enableSaveButton];
+  return YES;  
+}
+
+- (BOOL)isValidEmail:(NSString *)checkString
+{
+  BOOL stricterFilter = YES; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+  NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+  NSString *laxString = @".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+  NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+  NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+  return [emailTest evaluateWithObject:checkString];
+}
+
+- (IBAction)enteredFirstName:(id)sender
+{
+  [self isValidEvent];
+}
+
+- (IBAction)enteredLastName:(id)sender
+{
+  [self isValidEvent];
+}
+
+- (IBAction)enteredEmail:(id)sender
+{
+  [self isValidEvent];
+  if(![self isValidEmail:[[self emailTextField] text]])
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Check yo email!" message:@"Please check if your email is entered correctly.  Thanks!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];    
+  }
+}
+
+- (void)disableSaveButton
+{
+  [addButton2 setEnabled:NO];    
+  [addButton2 setAlpha:0.5];  
+}
+- (void)enableSaveButton
+{
+  [addButton2 setEnabled:YES];    
+  [addButton2 setAlpha:1.0];  
+}
+
 
 @end
