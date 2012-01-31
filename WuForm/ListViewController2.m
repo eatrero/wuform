@@ -52,7 +52,6 @@
 
   
   // Do any additional setup after loading the view from its nib.
-  [self.navigationController setNavigationBarHidden:NO animated:NO];
   listDetailViewController = [[ListDetailViewController alloc] init];
   listMasterViewController = [[ListMasterViewController alloc] init];
   [listMasterViewController setListDetailViewController:listDetailViewController];
@@ -110,7 +109,14 @@
   }
   
   // Set Navigation Bar style
-  [self.navigationController setNavigationBarHidden:NO animated:NO];
+  [self.navigationController setNavigationBarHidden:NO animated:NO];  
+  
+  UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"SYNC"
+                                                                  style:UIBarButtonItemStyleDone 
+                                                                 target:self 
+                                                                 action:@selector(syncList:)];
+  self.navigationItem.rightBarButtonItem = rightButton;
+    
   
   // Select first row by default
   [self.listMasterViewController selectFirstRow];
@@ -127,7 +133,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+  // Return YES for supported orientations
+  return (interfaceOrientation == UIInterfaceOrientationPortrait || 
+          interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (CGSize)splitViewSizeForOrientation:(UIInterfaceOrientation)theOrientation
@@ -157,5 +165,13 @@
 	return CGSizeMake(width, height);
 }
 
-
+- (IBAction)syncList:(id)sender
+{
+  // Start sync here
+  // NSError *error = nil;
+  if(![listMasterViewController syncList])
+  {
+    NSLog(@"ERROR: UNABLE to SYNC LIST");
+  } 
+}
 @end

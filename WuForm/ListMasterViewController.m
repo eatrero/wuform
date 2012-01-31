@@ -19,6 +19,18 @@
   // Call the superclass's designtated initializer
   self = [super initWithStyle:UITableViewStyleGrouped];
   
+  // Init the eventSyncher
+  if (self) {
+    // Add event synch
+    sync = [[EventSyncher alloc] init];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+    [nc addObserver:self                      // The object self will be sent 
+           selector:@selector(nextEvent:)     // send msg to @nextEvent: after the event is synched   
+               name:@"UpdateDisplay"          // when @"UpdateDisplay" is posted 
+             object:nil];                     // by any object.
+
+  }
+  
   return self;
 }
 
@@ -31,6 +43,7 @@
   [super viewDidLoad];
   
   self.clearsSelectionOnViewWillAppear = NO;
+  
 //  self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 }
 
@@ -142,5 +155,83 @@
 	}
 }
 
+- (Boolean)syncList
+{
+  NSLog(@"%s", __FUNCTION__);
 
+  Boolean allSync = YES;
+
+  NSArray *events = [[EventStore defaultStore] allEvents];
+  
+  for (currEvent in events)
+  {
+    if (![currEvent.synched boolValue]) {
+      NSLog(@"%@ Not Synched. Kick off sync", [currEvent uuid]);
+      allSync = NO;
+      [sync startSync:currEvent];
+      break;
+    }
+    else{
+      NSLog(@"Synched");
+    }
+  }
+  
+  if(allSync)
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"All Synched" message:@"All entires are already synched!  W00t!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];        
+    
+    NSLog(@"%@, %@, %@, %@,", 
+          @"First Name", 
+          @"Last Name",
+          @"Email",
+          @"Date");
+    
+    for (currEvent in events)
+    {
+      NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+      [dateFormatter setDateFormat:@"yyyyMMdd"];
+      NSString *dateString = [dateFormatter stringFromDate:currEvent.weddingDate];  
+
+      
+      NSLog(@"%@, %@, %@, %@,", 
+            currEvent.firstName, 
+            currEvent.lastName,
+            currEvent.emailAddress,
+            dateString);
+      
+    }    
+  }
+  
+  return YES;
+}
+
+- (void) nextEvent:(NSNotification *)note
+{
+  NSLog(@"%s", __FUNCTION__);
+  
+  Boolean allSync = YES;
+  
+  NSArray *events = [[EventStore defaultStore] allEvents];
+  
+  for (currEvent in events)
+  {
+    if (![currEvent.synched boolValue]) {
+      NSLog(@"%@ Not Synched. Kick off sync", [currEvent uuid]);
+      allSync = NO;
+      [sync startSync:currEvent];
+      break;
+    }
+    else{
+      NSLog(@"Synched");
+    }
+  }
+  
+  if(allSync)
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Synch Finished!" message:@"Great Success!  All entries are now synchronized." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];        
+  }
+  
+}
 @end

@@ -94,7 +94,7 @@
 		212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
-		21353D6914A494990048D1B5 /* WuForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WuForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21353D6914A494990048D1B5 /* Atrero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atrero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21353D6D14A494990048D1B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21353D6F14A494990048D1B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21353D7114A494990048D1B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -257,7 +257,7 @@
 		21353D6A14A494990048D1B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21353D6914A494990048D1B5 /* WuForm.app */,
+				21353D6914A494990048D1B5 /* Atrero.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 			);
 			name = WuForm;
 			productName = WuForm;
-			productReference = 21353D6914A494990048D1B5 /* WuForm.app */;
+			productReference = 21353D6914A494990048D1B5 /* Atrero.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -489,7 +489,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WuForm/WuForm-Prefix.pch";
 				INFOPLIST_FILE = "WuForm/WuForm-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Atrero;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -500,7 +500,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WuForm/WuForm-Prefix.pch";
 				INFOPLIST_FILE = "WuForm/WuForm-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Atrero;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

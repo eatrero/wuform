@@ -61,7 +61,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+  // Return YES for supported orientations
+  return (interfaceOrientation == UIInterfaceOrientationPortrait || 
+          interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (IBAction)returnToMainMenu:(id)sender
