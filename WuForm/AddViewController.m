@@ -440,5 +440,12 @@
   [addButton2 setAlpha:1.0];  
 }
 
-
+/*
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  [self.emailTextField resignFirstResponder];
+  [self.firstNameTextField resignFirstResponder];
+  [self.lastNameTextField resignFirstResponder];
+}
+*/
 @end
