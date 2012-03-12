@@ -51,6 +51,7 @@
 		21CE789414AC892400029155 /* ListDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CE789214AC892000029155 /* ListDetailViewController.xib */; };
 		21CE789814AC8E1D00029155 /* ListViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE789614AC8E1B00029155 /* ListViewController2.m */; };
 		21CE789914AC8E1D00029155 /* ListViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CE789714AC8E1D00029155 /* ListViewController2.xib */; };
+		21D963BF150B5C9F000D9A26 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D963BE150B5C9F000D9A26 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		21CE789514AC8E1B00029155 /* ListViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController2.h; sourceTree = "<group>"; };
 		21CE789614AC8E1B00029155 /* ListViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController2.m; sourceTree = "<group>"; };
 		21CE789714AC8E1D00029155 /* ListViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController2.xib; sourceTree = "<group>"; };
+		21D963BE150B5C9F000D9A26 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D963BF150B5C9F000D9A26 /* MessageUI.framework in Frameworks */,
 				210557F114B291BB00A64089 /* libz.dylib in Frameworks */,
 				210557AD14B27A5C00A64089 /* MobileCoreServices.framework in Frameworks */,
 				210557AB14B27A5200A64089 /* SystemConfiguration.framework in Frameworks */,
@@ -266,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				210557F014B291BB00A64089 /* libz.dylib */,
+				21D963BE150B5C9F000D9A26 /* MessageUI.framework */,
 				210557AC14B27A5C00A64089 /* MobileCoreServices.framework */,
 				210557AA14B27A5200A64089 /* SystemConfiguration.framework */,
 				210557A814B27A4700A64089 /* CFNetwork.framework */,

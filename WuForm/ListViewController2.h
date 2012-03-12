@@ -11,7 +11,7 @@
 #import "ListMasterViewController.h"
 #import "ListDetailViewController.h"
 
-@interface ListViewController2 : UIViewController
+@interface ListViewController2 : UIViewController <UIActionSheetDelegate>
 {
   NSManagedObjectContext *managedObjectContext;
   ListMasterViewController *listMasterViewController;

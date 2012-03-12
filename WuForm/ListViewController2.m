@@ -10,6 +10,9 @@
 #import "EventStore.h"
 
 @implementation ListViewController2
+{
+  UIBarButtonItem *rightButton;
+}
 @synthesize managedObjectContext;
 @synthesize listMasterViewController;
 @synthesize listDetailViewController;
@@ -111,10 +114,10 @@
   // Set Navigation Bar style
   [self.navigationController setNavigationBarHidden:NO animated:NO];  
   
-  UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"SYNC"
-                                                                  style:UIBarButtonItemStyleDone 
-                                                                 target:self 
-                                                                 action:@selector(syncList:)];
+  rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Export"
+                                                 style:UIBarButtonItemStyleDone 
+                                                target:self 
+                                                action:@selector(syncList:)];
   self.navigationItem.rightBarButtonItem = rightButton;
     
   
@@ -165,13 +168,49 @@
 	return CGSizeMake(width, height);
 }
 
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  NSLog(@"Clicked Button %d", buttonIndex);
+
+  switch (buttonIndex) {
+    case 0:
+      // Synch with Wufoo
+      if(![listMasterViewController syncList])
+      {
+        NSLog(@"ERROR: UNABLE to SYNC LIST");
+      }
+      break;
+      
+    case 1:
+      // Export to .csv
+      if(![listMasterViewController exportListToCSV])
+      {
+        NSLog(@"ERROR: UNABLE to Export LIST");
+      }
+      break;
+      
+    default:
+      break;
+  }
+}
+
 - (IBAction)syncList:(id)sender
 {
   // Start sync here
   // NSError *error = nil;
-  if(![listMasterViewController syncList])
-  {
-    NSLog(@"ERROR: UNABLE to SYNC LIST");
-  } 
+  
+//  if(![listMasterViewController syncList])
+//  {
+//    NSLog(@"ERROR: UNABLE to SYNC LIST");
+//  } 
+  
+  NSLog(@"Show Export Options Popup");
+
+  UIActionSheet *exportActionSheet = [[UIActionSheet alloc] initWithTitle:@"Export Entries" 
+                                                                delegate:self 
+                                                       cancelButtonTitle:@"OK" 
+                                                  destructiveButtonTitle:nil 
+                                                       otherButtonTitles:@"Synch with Wufoo", @"Mail as .csv", nil];
+  [exportActionSheet showFromBarButtonItem:rightButton animated:YES];
 }
 @end

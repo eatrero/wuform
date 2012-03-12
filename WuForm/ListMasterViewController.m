@@ -10,6 +10,10 @@
 #import "EventStore.h"
 
 @implementation ListMasterViewController
+{
+  Event *currEvent;
+}
+
 @synthesize inquiryList;
 @synthesize listDetailViewController;
 @synthesize selectedEvent;
@@ -43,7 +47,43 @@
   [super viewDidLoad];
   
   self.clearsSelectionOnViewWillAppear = NO;
+#if 0  
+  // Write entries to CSV file
+  NSArray *events = [[EventStore defaultStore] allEvents];
   
+  NSString *eventsCSVString = [[NSString alloc] initWithFormat:@"First Name, Last Name, Email, Date\n"];
+  NSLog(@"First Name, Last Name, Email, Date\n");        
+  
+  for (currEvent in events)
+  {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    NSString *dateString = [dateFormatter stringFromDate:currEvent.weddingDate];  
+    
+    
+    eventsCSVString = [eventsCSVString stringByAppendingFormat:@"%@, %@, %@, %@\n", 
+                       currEvent.firstName, 
+                       currEvent.lastName,
+                       currEvent.emailAddress,
+                       dateString];
+    NSLog(@"%@, %@, %@, %@\n", 
+          currEvent.firstName, 
+          currEvent.lastName,
+          currEvent.emailAddress,
+          dateString);        
+  }
+  
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+  NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
+  
+  NSError *error;
+  BOOL succeed = [eventsCSVString writeToFile:[documentsDirectory stringByAppendingPathComponent:@"entries.csv"]
+                                   atomically:YES encoding:NSUTF8StringEncoding error:&error];
+  if (!succeed){
+    // Handle error here
+    NSLog(@"Write to FILE FAILED\n");        
+  }
+#endif  
 //  self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 }
 
@@ -163,6 +203,11 @@
 
   NSArray *events = [[EventStore defaultStore] allEvents];
   
+  if(events == nil)
+  {
+    return NO;    
+  }
+  
   for (currEvent in events)
   {
     if (![currEvent.synched boolValue]) {
@@ -206,6 +251,95 @@
   return YES;
 }
 
+- (Boolean)exportListToCSV
+{
+  NSLog(@"%s", __FUNCTION__);
+#if 1    
+  NSArray *events = [[EventStore defaultStore] allEvents];
+  
+  if(events == nil)
+  {
+    return NO;    
+  }
+  
+  NSString *eventsCSVString = [[NSString alloc] initWithFormat:@"First Name, Last Name, Email, Date\n"];
+  NSLog(@"First Name, Last Name, Email, Date\n");        
+  
+  for (currEvent in events)
+  {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    NSString *dateString = [dateFormatter stringFromDate:currEvent.weddingDate];  
+    
+
+    eventsCSVString = [eventsCSVString stringByAppendingFormat:@"%@, %@, %@, %@\n", 
+                       currEvent.firstName, 
+                       currEvent.lastName,
+                       currEvent.emailAddress,
+                       dateString];
+    NSLog(@"%@, %@, %@, %@\n", 
+          currEvent.firstName, 
+          currEvent.lastName,
+          currEvent.emailAddress,
+          dateString);        
+  }
+  
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+  NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
+  
+  NSError *error;
+  BOOL succeed = [eventsCSVString writeToFile:[documentsDirectory stringByAppendingPathComponent:@"entries.csv"]
+                            atomically:YES encoding:NSUTF8StringEncoding error:&error];
+  if (!succeed){
+    // Handle error here
+    NSLog(@"Write to FILE FAILED\n");        
+  }
+#endif  
+  
+//  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+//  NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
+  
+
+  MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+  controller.mailComposeDelegate = self;
+  
+  //get list of document directories in sandbox 
+//  NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  
+  //get one and only document directory from that list
+  NSString *documentDirectory = [documentsDirectory stringByAppendingPathComponent:@"/entries.csv"];
+
+  if([[NSFileManager defaultManager] fileExistsAtPath:documentDirectory])
+  {
+    [controller setToRecipients:[NSArray arrayWithObject:[NSString stringWithString:@"eatrero@gmail.com"]]];
+    [controller setMessageBody:@"Custom messgae Here..." isHTML:NO];
+    [controller setSubject:@"Hi, I'm the subject"];
+    
+    NSError *error;
+    NSString *tstRead = [NSString stringWithContentsOfFile:documentDirectory encoding:NSUTF8StringEncoding error:&error];
+    NSLog(@"Read back: %@", tstRead);
+    
+    NSURL *csvURL = [NSURL fileURLWithPath:documentDirectory];
+    NSData *csvData = [NSData dataWithContentsOfURL:csvURL];
+    NSLog(@"Read back: %@", [csvData description]);
+    [controller addAttachmentData:csvData mimeType:@"text/csv" fileName:@"entries.csv"];
+    
+    [self presentModalViewController:controller animated:YES];
+    
+    return YES;
+  }
+  
+  return NO;
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+  // NEVER REACHES THIS PLACE
+  [self dismissModalViewControllerAnimated:YES];
+  
+  NSLog (@"mail finished");
+}
+
 - (void) nextEvent:(NSNotification *)note
 {
   NSLog(@"%s", __FUNCTION__);
@@ -232,6 +366,5 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Synch Finished!" message:@"Great Success!  All entries are now synchronized." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];        
   }
-  
 }
 @end

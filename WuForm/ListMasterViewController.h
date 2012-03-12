@@ -7,24 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import "ListDetailViewController.h"
 #import "Event.h"
 #import "EventSyncher.h"
 
-@interface ListMasterViewController : UITableViewController
+@interface ListMasterViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 {
   NSArray *inquiryList;
   ListDetailViewController *listDetailViewController;
   Event *selectedEvent;
-  Event *currEvent;
   EventSyncher *sync;
 }
 @property (nonatomic, retain) NSArray *inquiryList;
 @property (nonatomic, retain) ListDetailViewController *listDetailViewController;
 @property (nonatomic, retain) Event *selectedEvent;
-@property (nonatomic, retain) Event *currEvent;
 
 - (void)selectFirstRow;
 - (Boolean)syncList;
+- (Boolean)exportListToCSV;
 
 @end
