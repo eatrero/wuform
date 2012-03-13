@@ -11,7 +11,7 @@
 #import "Event.h"
 
 
-@interface AddViewController : UIViewController <UITextFieldDelegate, UIPopoverControllerDelegate, WeddingDateViewControllerDelegate> 
+@interface AddViewController : UIViewController <UITextFieldDelegate, UIPopoverControllerDelegate, WeddingDateViewControllerDelegate, UIScrollViewDelegate> 
 {
   NSMutableArray *eventsArray;
   NSManagedObjectContext *managedObjectContext;
@@ -27,6 +27,7 @@
   NSDate *weddingDate;
   Event *newEvent;
 }
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) NSMutableArray *eventsArray;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) UINavigationController *mainMenuViewController;

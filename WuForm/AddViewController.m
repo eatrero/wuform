@@ -13,6 +13,7 @@
 
 
 @implementation AddViewController
+@synthesize scrollView;
 @synthesize eventsArray;
 @synthesize managedObjectContext;
 @synthesize mainMenuViewController;
@@ -34,6 +35,7 @@
 
 - (void)viewDidUnload
 {
+  [self setScrollView:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
   // e.g. self.myOutlet = nil;
@@ -114,6 +116,8 @@
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event"
                                             inManagedObjectContext:managedObjectContext];
   [request setEntity:entity];
+  
+  scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height*1.5);
   
   NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
                                       initWithKey:@"creationDate" ascending:NO];

@@ -317,11 +317,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -331,11 +331,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "102"
-         endingLineNumber = "102"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -359,11 +359,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "347445546.545017"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -373,11 +373,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "347445546.545017"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
          landmarkName = "-viewWillDisappear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -583,11 +583,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "259"
-         endingLineNumber = "259"
+         startingLineNumber = "263"
+         endingLineNumber = "263"
          landmarkName = "-addEvent:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -597,11 +597,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "347445546.545017"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "55"
+         endingLineNumber = "55"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -653,11 +653,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "192"
-         endingLineNumber = "192"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
          landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -765,11 +765,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "300"
-         endingLineNumber = "300"
+         startingLineNumber = "304"
+         endingLineNumber = "304"
          landmarkName = "-addEvent:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -779,11 +779,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "299"
-         endingLineNumber = "299"
+         startingLineNumber = "303"
+         endingLineNumber = "303"
          landmarkName = "-addEvent:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1185,11 +1185,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "379"
-         endingLineNumber = "379"
+         startingLineNumber = "383"
+         endingLineNumber = "383"
          landmarkName = "-isValidEvent"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1199,11 +1199,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "423"
-         endingLineNumber = "423"
+         startingLineNumber = "427"
+         endingLineNumber = "427"
          landmarkName = "-enteredEmail:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1213,11 +1213,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "WuForm/AddViewController.m"
-         timestampString = "349417811.230828"
+         timestampString = "353321820.759825"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "425"
-         endingLineNumber = "425"
+         startingLineNumber = "429"
+         endingLineNumber = "429"
          landmarkName = "-enteredEmail:"
          landmarkType = "5">
       </FileBreakpoint>
