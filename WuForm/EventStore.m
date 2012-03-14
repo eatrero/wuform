@@ -74,6 +74,7 @@ static EventStore *defaultStore = nil;
 // respond to update event notifications
 - (void)updateEvent:(NSNotification *)note
 {
+  NSLog(@"%s", __FUNCTION__);
   if(!managedObjectContext)
   {
     NSLog(@"EventStore:updateEvent invalid managedObjectContext!");
@@ -121,9 +122,59 @@ static EventStore *defaultStore = nil;
   return;
 }
 
+- (void)updateEventSync:(Event *)event
+{
+  NSLog(@"%s", __FUNCTION__);
+  if(!managedObjectContext)
+  {
+    NSLog(@"EventStore:updateEvent invalid managedObjectContext!");
+    
+    return;
+  }
+  
+  if(!event)
+  {
+    NSLog(@"invalid updatedEvent!");
+    
+    return;
+  }
+  
+  NSError *error;
+  Event *tmpEvent;
+  for (tmpEvent in allEvents)
+  {
+    if([[tmpEvent uuid] isEqualToString:[event uuid]])
+    {
+      NSLog(@"updateEvent: Event located!");      
+      [tmpEvent setFirstName:[event firstName]];
+      [tmpEvent setLastName:[event lastName]];
+      [tmpEvent setEmailAddress:[event emailAddress]];
+      [tmpEvent setSynched:[event synched]];
+      
+      if (![managedObjectContext save:&error]) {
+        // Handle the error.
+        NSLog(@"updateEvent: Error saving context: %@", error);      
+      }    
+      NSDictionary *extraInfo = [NSDictionary dictionaryWithObject:event forKey:@"updatedDisplay"]; 
+      
+      NSNotification *note = [NSNotification notificationWithName:@"UpdateDisplay" 
+                                                           object:self 
+                                                         userInfo:extraInfo]; 
+      [[NSNotificationCenter defaultCenter] postNotification:note];
+      
+      return;
+    }
+  }  
+  NSLog(@"updateEvent: Event not found!");
+  return;
+}
+
+
+
 // respond to remove event notifications
 - (void)removeEvent:(Event *)event
 {
+  NSLog(@"%s", __FUNCTION__);
   if(!managedObjectContext)
   {
     NSLog(@"EventStore:updateEvent invalid managedObjectContext!");

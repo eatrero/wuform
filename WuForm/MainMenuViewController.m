@@ -40,12 +40,14 @@
 {
     [super viewDidLoad];
   
-  self.title = @"Atrero Photography";
-  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-2.png"]];
+  self.title = @"Main Menu";
+  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-apertura.png"]];
+//  self.view.backgroundColor = [UIColor blackColor];
   addViewController = [[AddViewController alloc] init];
   [addViewController setMainMenuViewController:[self mainMenuNavigationController]];
   addViewController.managedObjectContext = managedObjectContext;
   [self.navigationController setNavigationBarHidden:YES animated:NO];
+  [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackOpaque];
   
   [addButton addTarget:self action:@selector(showAddView:) forControlEvents:UIControlEventTouchUpInside];
   [listButton addTarget:self action:@selector(showListView:) forControlEvents:UIControlEventTouchUpInside];

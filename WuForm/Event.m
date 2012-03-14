@@ -18,5 +18,12 @@
 @dynamic emailAddress;
 @dynamic synched;
 @dynamic uuid;
+@dynamic location;
+@dynamic phone;
+@dynamic comment;
+@dynamic company;
+@dynamic business;
+@dynamic title;
+@dynamic website;
 
 @end

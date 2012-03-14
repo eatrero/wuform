@@ -11,7 +11,7 @@
 #import "Event.h"
 
 
-@interface AddViewController : UIViewController <UITextFieldDelegate, UIPopoverControllerDelegate, WeddingDateViewControllerDelegate, UIScrollViewDelegate> 
+@interface AddViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIPopoverControllerDelegate, WeddingDateViewControllerDelegate, UIScrollViewDelegate> 
 {
   NSMutableArray *eventsArray;
   NSManagedObjectContext *managedObjectContext;
@@ -38,6 +38,14 @@
 @property (nonatomic, retain) IBOutlet UITextField *emailTextField;
 @property (nonatomic, retain) IBOutlet UIButton    *setDateButton;
 @property (nonatomic, retain) NSDate *weddingDate;
+@property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (strong, nonatomic) IBOutlet UITextField *locationTextField;
+@property (strong, nonatomic) IBOutlet UITextView *commentsTextView;
+@property (strong, nonatomic) IBOutlet UITextField *companyTextField;
+@property (strong, nonatomic) IBOutlet UITextField *businessTextField;
+@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+@property (strong, nonatomic) IBOutlet UITextField *websiteTextField;
+
 
 - (IBAction)addEvent:(id)sender;
 - (IBAction)enteredFirstName:(id)sender;

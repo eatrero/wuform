@@ -173,6 +173,7 @@
   NSLog(@"Clicked Button %d", buttonIndex);
 
   switch (buttonIndex) {
+#if 1      
     case 0:
       // Synch with Wufoo
       if(![listMasterViewController syncList])
@@ -188,7 +189,15 @@
         NSLog(@"ERROR: UNABLE to Export LIST");
       }
       break;
-      
+#else
+    case 0:
+      // Export to .csv
+      if(![listMasterViewController exportListToCSV])
+      {
+        NSLog(@"ERROR: UNABLE to Export LIST");
+      }
+      break;
+#endif      
     default:
       break;
   }
@@ -210,7 +219,11 @@
                                                                 delegate:self 
                                                        cancelButtonTitle:@"OK" 
                                                   destructiveButtonTitle:nil 
+#if 1     
                                                        otherButtonTitles:@"Synch with Wufoo", @"Mail as .csv", nil];
+#else  
+                                                      otherButtonTitles:@"Mail as .csv", nil];
+#endif  
   [exportActionSheet showFromBarButtonItem:rightButton animated:YES];
 }
 @end

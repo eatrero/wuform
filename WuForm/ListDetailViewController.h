@@ -29,6 +29,13 @@
 @property (nonatomic, retain) IBOutlet UITextField *weddingDateTextField;
 @property (nonatomic, retain) IBOutlet UILabel     *syncLabel;
 @property (nonatomic, retain) IBOutlet UIButton    *syncButton;
+@property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (strong, nonatomic) IBOutlet UITextField *locationTextField;
+@property (strong, nonatomic) IBOutlet UITextView *commentsTextView;
+@property (strong, nonatomic) IBOutlet UITextField *companyTextField;
+@property (strong, nonatomic) IBOutlet UITextField *businessTextField;
+@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+@property (strong, nonatomic) IBOutlet UITextField *websiteTextField;
 
 - (IBAction)syncEvent:(id)sender;
 - (void)showEvent;

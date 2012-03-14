@@ -10,10 +10,14 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "XMLReader.h"
+#import "EventStore.h"
 
 @implementation EventSyncher
+//NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
+//NSString * const APIHash = @"r7x2x3";
+//NSString * const APIsubdomain = @"atrerophoto";
 NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
-NSString * const APIHash = @"r7x2x3";
+NSString * const APIHash = @"z7x0q1";
 NSString * const APIsubdomain = @"atrerophoto";
 
 - (id)init
@@ -29,6 +33,7 @@ NSString * const APIsubdomain = @"atrerophoto";
 
 - (Boolean) startSync:(Event *)event
 {
+  NSLog(@"%s", __FUNCTION__);
   NSString *wufooURL = [NSString stringWithFormat:@"https://%@.wufoo.com/api/v3/forms/%@/entries.xml",APIsubdomain,APIHash];
   
   
@@ -38,16 +43,23 @@ NSString * const APIsubdomain = @"atrerophoto";
   
   [ASIHTTPRequest showNetworkActivityIndicator];
   [myRequest addRequestHeader:@"Authorization" value:[NSString stringWithFormat:@"Basic %@",[ASIHTTPRequest base64forData:[[NSString stringWithFormat:@"%@:%@",APIKey,@"footastic"] dataUsingEncoding:NSUTF8StringEncoding]]]];
-  [myRequest addPostValue:event.firstName forKey:@"Field2"];
-  [myRequest addPostValue:event.lastName forKey:@"Field3"];
   
   NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateFormat:@"yyyyMMdd"];
   NSString *dateString = [dateFormatter stringFromDate:event.weddingDate];  
   NSLog(@"%@", dateString);
 
-  [myRequest addPostValue:dateString forKey:@"Field4"];
-  [myRequest addPostValue:event.emailAddress forKey:@"Field5"];
+  [myRequest addPostValue:event.firstName           forKey:@"Field2"];
+  [myRequest addPostValue:event.lastName            forKey:@"Field3"];
+  [myRequest addPostValue:event.emailAddress        forKey:@"Field5"];
+  [myRequest addPostValue:event.phone               forKey:@"Field9"];
+  [myRequest addPostValue:dateString                forKey:@"Field4"];
+  [myRequest addPostValue:event.location            forKey:@"Field10"];
+  [myRequest addPostValue:event.comment             forKey:@"Field11"];
+  [myRequest addPostValue:event.company             forKey:@"Field12"];
+  [myRequest addPostValue:event.business            forKey:@"Field13"];
+  [myRequest addPostValue:event.title               forKey:@"Field14"];
+  [myRequest addPostValue:event.website             forKey:@"Field15"];
   
   NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:event, @"event",nil];
   [myRequest setUserInfo:userInfo];
@@ -62,13 +74,67 @@ NSString * const APIsubdomain = @"atrerophoto";
   return YES;
 }
 
+- (Boolean) startSync2:(NSTimer *)timer
+{
+  NSLog(@"%s", __FUNCTION__);
+  NSString *wufooURL = [NSString stringWithFormat:@"https://%@.wufoo.com/api/v3/forms/%@/entries.xml",APIsubdomain,APIHash];
+  
+  
+  NSURL *url = [NSURL URLWithString:wufooURL];
+  myRequest = [ASIFormDataRequest requestWithURL:url];
+  [myRequest setDelegate:self];
+  
+  [ASIHTTPRequest showNetworkActivityIndicator];
+  [myRequest addRequestHeader:@"Authorization" value:[NSString stringWithFormat:@"Basic %@",[ASIHTTPRequest base64forData:[[NSString stringWithFormat:@"%@:%@",APIKey,@"footastic"] dataUsingEncoding:NSUTF8StringEncoding]]]];
+  
+  NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateFormat:@"yyyyMMdd"];
+  Event *event = timer.userInfo;
+  NSString *dateString = [dateFormatter stringFromDate:event.weddingDate];  
+  NSLog(@"%@", dateString);
+  
+  [myRequest addPostValue:event.firstName           forKey:@"Field2"];
+  [myRequest addPostValue:event.lastName            forKey:@"Field3"];
+  [myRequest addPostValue:event.emailAddress        forKey:@"Field5"];
+  [myRequest addPostValue:event.phone               forKey:@"Field9"];
+  [myRequest addPostValue:dateString                forKey:@"Field4"];
+  [myRequest addPostValue:event.location            forKey:@"Field10"];
+  [myRequest addPostValue:event.comment             forKey:@"Field11"];
+  [myRequest addPostValue:event.company             forKey:@"Field12"];
+  [myRequest addPostValue:event.business            forKey:@"Field13"];
+  [myRequest addPostValue:event.title               forKey:@"Field14"];
+  [myRequest addPostValue:event.website             forKey:@"Field15"];
+  
+  NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:event, @"event",nil];
+  [myRequest setUserInfo:userInfo];
+  [myRequest setShouldWaitToInflateCompressedResponses:NO];
+  [myRequest startAsynchronous];
+  
+  NSLog(@"connection = %d", [[myRequest requestID] intValue]);
+  
+  // Associate connection with event
+  //[connections setObject:[event uuid] forKey:[request requestID]];
+  
+  return YES;
+}
+
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
+  NSLog(@"%s", __FUNCTION__);
   NSString *response = [request responseString];
   Event *event =     [[request userInfo] objectForKey:@"event"];
   
   NSLog(@"Got requestFinished for event.uuid = %@", [event uuid]);
+  [event setSynched:[NSNumber numberWithBool:YES]];
   
+//  NSDictionary *extraInfo = [NSDictionary dictionaryWithObject:event forKey:@"updatedEvent"]; 
+//  
+//  NSNotification *note = [NSNotification notificationWithName:@"UpdateEvent" 
+//                                                       object:self 
+//                                                     userInfo:extraInfo]; 
+//  [[NSNotificationCenter defaultCenter] postNotification:note];
+//  
+  [[EventStore defaultStore] updateEventSync:event];
 
 }
 
@@ -99,6 +165,7 @@ NSString * const APIsubdomain = @"atrerophoto";
 
 - (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data
 {
+  NSLog(@"%s", __FUNCTION__);
   Event *event =     [[request userInfo] objectForKey:@"event"];
   NSLog(@"Got didReceiveData for event.uuid = %@", [event uuid]);
   
@@ -119,15 +186,6 @@ NSString * const APIsubdomain = @"atrerophoto";
       NSString *success = [dic2 valueForKey:@"Success"];
       if([success isEqualToString:@"1"]) {
         NSLog(@"ENTRY ADD: SUCCESS");
-        [event setSynched:[NSNumber numberWithBool:YES]];
-        
-        NSDictionary *extraInfo = [NSDictionary dictionaryWithObject:event forKey:@"updatedEvent"]; 
-        
-        NSNotification *note = [NSNotification notificationWithName:@"UpdateEvent" 
-                                                             object:self 
-                                                           userInfo:extraInfo]; 
-        [[NSNotificationCenter defaultCenter] postNotification:note];
-        
       } else {
         NSLog(@"ENTRY ADD: FAILED");
       }                

@@ -19,5 +19,12 @@
 @property (nonatomic, retain) NSString * emailAddress;
 @property (nonatomic, retain) NSNumber * synched;
 @property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSString * location;
+@property (nonatomic, retain) NSString * phone;
+@property (nonatomic, retain) NSString * comment;
+@property (nonatomic, retain) NSString * company;
+@property (nonatomic, retain) NSString * business;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * website;
 
 @end

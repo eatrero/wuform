@@ -24,6 +24,13 @@
 @synthesize emailTextField;
 @synthesize setDateButton;
 @synthesize weddingDate;
+@synthesize phoneTextField;
+@synthesize locationTextField;
+@synthesize commentsTextView;
+@synthesize companyTextField;
+@synthesize businessTextField;
+@synthesize titleTextField;
+@synthesize websiteTextField;
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,6 +43,13 @@
 - (void)viewDidUnload
 {
   [self setScrollView:nil];
+  [self setPhoneTextField:nil];
+  [self setLocationTextField:nil];
+    [self setCommentsTextView:nil];
+  [self setCompanyTextField:nil];
+  [self setBusinessTextField:nil];
+  [self setTitleTextField:nil];
+  [self setWebsiteTextField:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
   // e.g. self.myOutlet = nil;
@@ -104,7 +118,8 @@
   self.title = @"Add";
   
   // Set up the buttons.
-  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+//  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-apertura.png"]];
+  self.view.backgroundColor = [UIColor blackColor];
   
   // popoverViewController = [[UIViewController alloc] init];
   popoverViewController = [[WeddingDateViewController alloc] init];
@@ -255,6 +270,13 @@
   [event setLastName:lastNameTextField.text];
   [event setEmailAddress:emailTextField.text];
   [event setWeddingDate:weddingDate];
+  [event setPhone:phoneTextField.text];
+  [event setLocation:locationTextField.text];
+  [event setComment:commentsTextView.text];
+  [event setCompany:companyTextField.text];
+  [event setBusiness:businessTextField.text];
+  [event setTitle:titleTextField.text];
+  [event setWebsite:websiteTextField.text];
   [event setSynched:[NSNumber numberWithBool:NO]];
   
   CFUUIDRef theUUID = CFUUIDCreate(NULL);
@@ -311,7 +333,7 @@
   [self.emailTextField resignFirstResponder];
 
   NSLog(@"Popup Controller");
-  [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+  [popoverController presentPopoverFromRect:CGRectMake(293.0, 620.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
   
 }
 
@@ -322,6 +344,17 @@
 {
   [textField resignFirstResponder];
 }
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+  
+  if([text isEqualToString:@"\n"]) {
+    [textView resignFirstResponder];
+    return NO;
+  }
+  
+  return YES;
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 // A delegate method called by the URL text field when the user taps the Return 
@@ -358,8 +391,17 @@
   [[self firstNameTextField] setText:nil];
   [[self lastNameTextField] setText:nil];
   [[self emailTextField] setText:nil];
-  [[[self setDateButton] titleLabel] setText:@"WEDDING DATE"];
+  [[[self setDateButton] titleLabel] setText:@"EVENT DATE"];
+  [[self companyTextField] setText:nil];
+  [[self businessTextField] setText:nil];
+  [[self websiteTextField] setText:nil];
+  [[self titleTextField] setText:nil];
+  [[self phoneTextField] setText:nil];
+  [[self locationTextField] setText:nil];
+  [[self commentsTextView] setText:nil];
+
   [self disableSaveButton];  
+  [scrollView setContentOffset:CGPointMake(0,0) animated:NO];	// start at the top of the table
 }
 
 - (void)hideForm
@@ -387,18 +429,25 @@
   }
   
   // check for valid first name & last name
-  if (![[self firstNameTextField] text] || ![[self lastNameTextField] text])
+  if ((self.firstNameTextField.text.length == 0) || (self.lastNameTextField.text.length == 0))
+  {
+    [self disableSaveButton];
+    return NO;    
+  }
+  
+  // check for valid phone name
+  if (self.phoneTextField.text.length == 0)
   {
     [self disableSaveButton];
     return NO;    
   }
   
   // check for valid wedding date
-  if (![self weddingDate])
-  {
-    [self disableSaveButton];
-    return NO;    
-  }
+//  if (![self weddingDate])
+//  {
+//    [self disableSaveButton];
+//    return NO;    
+//  }
   [self enableSaveButton];
   return YES;  
 }
@@ -428,20 +477,32 @@
   [self isValidEvent];
   if(![self isValidEmail:[[self emailTextField] text]])
   {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Check yo email!" message:@"Please check if your email is entered correctly.  Thanks!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please check your email!" message:@"Please check if your email is entered correctly.  Thanks!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];    
   }
+}
+
+- (IBAction)enteredPhone:(id)sender
+{
+  [self isValidEvent];
+}
+
+- (IBAction)startEnteringWebsite:(id)sender
+{
+  self.websiteTextField.text = @"http://";
 }
 
 - (void)disableSaveButton
 {
   [addButton2 setEnabled:NO];    
   [addButton2 setAlpha:0.5];  
+  [[addButton2 titleLabel] setText:@"SAVE"];
 }
 - (void)enableSaveButton
 {
   [addButton2 setEnabled:YES];    
   [addButton2 setAlpha:1.0];  
+  [[addButton2 titleLabel] setText:@"SAVE"];
 }
 
 /*

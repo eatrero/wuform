@@ -17,6 +17,13 @@
 @synthesize weddingDateTextField;
 @synthesize syncLabel;
 @synthesize syncButton;
+@synthesize phoneTextField;
+@synthesize locationTextField;
+@synthesize commentsTextView;
+@synthesize companyTextField;
+@synthesize businessTextField;
+@synthesize titleTextField;
+@synthesize websiteTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,11 +54,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+//    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-apertura.png"]];
+     self.view.backgroundColor = [UIColor blackColor];
 }
 
 - (void)viewDidUnload
 {
+  [self setPhoneTextField:nil];
+  [self setLocationTextField:nil];
+  [self setCommentsTextView:nil];
+  [self setCompanyTextField:nil];
+  [self setCompanyTextField:nil];
+  [self setCompanyTextField:nil];
+  [self setBusinessTextField:nil];
+  [self setTitleTextField:nil];
+  [self setWebsiteTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -79,8 +96,15 @@
 {
   // Set listDetailViewController 
   firstNameTextField.text = event.firstName;  
-  lastNameTextField.text = event.lastName;  
-  emailTextField.text = event.emailAddress;  
+  lastNameTextField.text  = event.lastName;  
+  emailTextField.text     = event.emailAddress;
+  phoneTextField.text     = event.phone;
+  locationTextField.text  = event.location;
+  commentsTextView.text   = event.comment;
+  companyTextField.text   = event.company;
+  businessTextField.text  = event.business;
+  titleTextField.text     = event.title;
+  websiteTextField.text   = event.website;
   
   if (![event.synched boolValue]) {
     syncLabel.text = @"NOT SYNCHED";  
@@ -95,11 +119,18 @@
   weddingDateTextField.text = [dateFormatter stringFromDate:event.weddingDate]; 
   
   NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-  NSLog(@"%@ %@ %@ %@ %@ %@", 
+  NSLog(@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@", 
         event.firstName, 
         event.lastName,
         event.emailAddress,
+        event.phone,
+        event.location,
+        event.comment,
         [dateFormatter stringFromDate:event.weddingDate],
+        event.company,
+        event.business,
+        event.title,
+        event.website,
         [numberFormatter stringFromNumber:event.synched],
         event.uuid);
   
@@ -135,7 +166,14 @@
   [[self firstNameTextField] setHidden:YES];
   [[self lastNameTextField] setHidden:YES];
   [[self emailTextField] setHidden:YES];
+  [[self phoneTextField] setHidden:YES];
+  [[self commentsTextView] setHidden:YES];
+  [[self locationTextField] setHidden:YES];
   [[self weddingDateTextField] setHidden:YES];
+  [[self companyTextField] setHidden:YES];
+  [[self businessTextField] setHidden:YES];
+  [[self titleTextField] setHidden:YES];
+  [[self websiteTextField] setHidden:YES];
   [[self syncLabel] setHidden:YES];
   [[self syncButton] setHidden:YES];
 }
@@ -145,7 +183,14 @@
   [[self firstNameTextField] setHidden:NO];
   [[self lastNameTextField] setHidden:NO];
   [[self emailTextField] setHidden:NO];
+  [[self phoneTextField] setHidden:NO];
+  [[self commentsTextView] setHidden:NO];
+  [[self locationTextField] setHidden:NO];
   [[self weddingDateTextField] setHidden:NO];
+  [[self companyTextField] setHidden:NO];
+  [[self businessTextField] setHidden:NO];
+  [[self titleTextField] setHidden:NO];
+  [[self websiteTextField] setHidden:NO];
   [[self syncLabel] setHidden:NO];
   [[self syncButton] setHidden:NO];
 }

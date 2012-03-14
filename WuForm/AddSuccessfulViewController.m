@@ -39,8 +39,9 @@
   // Set the title.
   self.title = @"Thank You!";
   
-  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
-  UIImage *btnImage = [UIImage imageNamed:@"date-button.png"];
+//  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-apertura.png"]];
+  self.view.backgroundColor = [UIColor blackColor];
+  UIImage *btnImage = [UIImage imageNamed:@"grey-button.png"];
   okButton = [[UIButton alloc] initWithFrame:CGRectMake(293.0, 540.0, 200.0, 60.0)];
   [okButton setBackgroundImage:btnImage forState:UIControlStateNormal];
   [okButton setTitle:@"OK" forState:UIControlStateNormal];

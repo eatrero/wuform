@@ -47,43 +47,6 @@
   [super viewDidLoad];
   
   self.clearsSelectionOnViewWillAppear = NO;
-#if 0  
-  // Write entries to CSV file
-  NSArray *events = [[EventStore defaultStore] allEvents];
-  
-  NSString *eventsCSVString = [[NSString alloc] initWithFormat:@"First Name, Last Name, Email, Date\n"];
-  NSLog(@"First Name, Last Name, Email, Date\n");        
-  
-  for (currEvent in events)
-  {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyyMMdd"];
-    NSString *dateString = [dateFormatter stringFromDate:currEvent.weddingDate];  
-    
-    
-    eventsCSVString = [eventsCSVString stringByAppendingFormat:@"%@, %@, %@, %@\n", 
-                       currEvent.firstName, 
-                       currEvent.lastName,
-                       currEvent.emailAddress,
-                       dateString];
-    NSLog(@"%@, %@, %@, %@\n", 
-          currEvent.firstName, 
-          currEvent.lastName,
-          currEvent.emailAddress,
-          dateString);        
-  }
-  
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-  NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
-  
-  NSError *error;
-  BOOL succeed = [eventsCSVString writeToFile:[documentsDirectory stringByAppendingPathComponent:@"entries.csv"]
-                                   atomically:YES encoding:NSUTF8StringEncoding error:&error];
-  if (!succeed){
-    // Handle error here
-    NSLog(@"Write to FILE FAILED\n");        
-  }
-#endif  
 //  self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 }
 
@@ -235,7 +198,8 @@
     for (currEvent in events)
     {
       NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-      [dateFormatter setDateFormat:@"yyyyMMdd"];
+      [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+//      [dateFormatter setDateFormat:@"yyyyMMdd"];
       NSString *dateString = [dateFormatter stringFromDate:currEvent.weddingDate];  
 
       
@@ -262,21 +226,29 @@
     return NO;    
   }
   
-  NSString *eventsCSVString = [[NSString alloc] initWithFormat:@"First Name, Last Name, Email, Date\n"];
-  NSLog(@"First Name, Last Name, Email, Date\n");        
+  NSString *eventsCSVString = [[NSString alloc] initWithFormat:@"First Name, Last Name, Email, Phone, Location, Comment, Date, Company, Business Type, Title, Website\n"];
+  NSLog(@"First Name, Last Name, Email, Phone, Location, Comment, Date, Company, Business Type, Title, Website\n");        
   
   for (currEvent in events)
   {
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSString *dateString = [dateFormatter stringFromDate:currEvent.weddingDate];  
     
 
-    eventsCSVString = [eventsCSVString stringByAppendingFormat:@"%@, %@, %@, %@\n", 
+    eventsCSVString = [eventsCSVString stringByAppendingFormat:@"%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@\n", 
                        currEvent.firstName, 
                        currEvent.lastName,
                        currEvent.emailAddress,
-                       dateString];
+                       currEvent.phone,
+                       currEvent.location,
+                       currEvent.comment,
+                       dateString,
+                       currEvent.company,
+                       currEvent.business,
+                       currEvent.title,
+                       currEvent.website
+                       ];
     NSLog(@"%@, %@, %@, %@\n", 
           currEvent.firstName, 
           currEvent.lastName,
@@ -311,9 +283,9 @@
 
   if([[NSFileManager defaultManager] fileExistsAtPath:documentDirectory])
   {
-    [controller setToRecipients:[NSArray arrayWithObject:[NSString stringWithString:@"eatrero@gmail.com"]]];
-    [controller setMessageBody:@"Custom messgae Here..." isHTML:NO];
-    [controller setSubject:@"Hi, I'm the subject"];
+    [controller setToRecipients:[NSArray arrayWithObject:[NSString stringWithString:@"info@aperturaphoto.com"]]];
+    [controller setMessageBody:@"You've got contacts..." isHTML:NO];
+    [controller setSubject:@"You've got contacts"];
     
     NSError *error;
     NSString *tstRead = [NSString stringWithContentsOfFile:documentDirectory encoding:NSUTF8StringEncoding error:&error];
@@ -344,7 +316,7 @@
 {
   NSLog(@"%s", __FUNCTION__);
   
-  Boolean allSync = YES;
+  Boolean allSync = NO;
   
   NSArray *events = [[EventStore defaultStore] allEvents];
   
@@ -353,7 +325,12 @@
     if (![currEvent.synched boolValue]) {
       NSLog(@"%@ Not Synched. Kick off sync", [currEvent uuid]);
       allSync = NO;
-      [sync startSync:currEvent];
+//      [sync startSync:currEvent];
+      [NSTimer scheduledTimerWithTimeInterval:0.500 
+                                       target:sync 
+                                     selector:@selector(startSync2:) 
+                                     userInfo:currEvent 
+                                      repeats:NO];
       break;
     }
     else{
