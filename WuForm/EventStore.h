@@ -25,4 +25,5 @@
 - (NSArray *)allEvents;
 - (void)updateEvent:(NSNotification *)note;
 - (void)removeEvent:(Event *)event;
+- (void)updateEventSync:(Event *)event;
 @end

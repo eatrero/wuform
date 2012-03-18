@@ -305,6 +305,8 @@
 - (IBAction)setDate:(id)sender
 {
   [self.emailTextField resignFirstResponder];
+  [self.lastNameTextField resignFirstResponder];
+  [self.firstNameTextField resignFirstResponder];
 
   NSLog(@"Popup Controller");
   [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
@@ -356,6 +358,7 @@
   [[self emailTextField] setText:nil];
   [[[self setDateButton] titleLabel] setText:@"WEDDING DATE"];
   [self disableSaveButton];  
+  self.weddingDate= nil;
 }
 
 - (void)hideForm
@@ -383,7 +386,7 @@
   }
   
   // check for valid first name & last name
-  if (![[self firstNameTextField] text] || ![[self lastNameTextField] text])
+  if ((self.firstNameTextField.text.length == 0) || (self.lastNameTextField.text.length == 0))
   {
     [self disableSaveButton];
     return NO;    
@@ -440,12 +443,12 @@
   [addButton2 setAlpha:1.0];  
 }
 
-/*
+
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
   [self.emailTextField resignFirstResponder];
   [self.firstNameTextField resignFirstResponder];
   [self.lastNameTextField resignFirstResponder];
 }
-*/
+
 @end
