@@ -7,7 +7,7 @@
 //
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
-
+#import "SettingsStore.h"
 #import "AddViewController.h"
 #import "MainMenuViewController.h"
 
@@ -53,7 +53,8 @@
   
     [self.window makeKeyAndVisible];
   
-  
+  // Initialize Default Settings
+  [[SettingsStore defaultStore] initSettings];
     return YES;
 }
 
@@ -77,6 +78,7 @@
    Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
    If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
    */
+  [[SettingsStore defaultStore] storeSettings];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

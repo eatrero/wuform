@@ -27,5 +27,6 @@
 
 - (IBAction) showAddView:(id)sender;
 - (IBAction) showListView:(id)sender;
+- (IBAction) showSettingsView:(id)sender;
 
 @end

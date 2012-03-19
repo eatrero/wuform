@@ -9,6 +9,7 @@
 #import "MainMenuViewController.h"
 #import "ListViewController2.h"
 #import "AddSuccessfulViewController.h"
+#import "SettingsViewController.h"
 
 @implementation MainMenuViewController
 
@@ -110,6 +111,25 @@
 	//Push OnTo NavigationController
   [mainMenuNavigationController pushViewController:listViewController animated:NO];
 	
+	//Start Animation
+	[UIView commitAnimations];
+}
+
+- (IBAction)showSettingsView:(id)sender 
+{
+  NSLog(@"%s", __FUNCTION__);
+  
+  SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
+  
+	//Set Animation Properties
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration: 0.50];
+	
+	//Hook To MainView
+	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.mainMenuNavigationController.view cache:YES];
+	//Push OnTo NavigationController
+  [mainMenuNavigationController pushViewController:settingsVC animated:NO];
+  
 	//Start Animation
 	[UIView commitAnimations];
 }

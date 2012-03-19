@@ -46,6 +46,9 @@
 		21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C91A4114A80BD00009AC7E /* weddingDateViewController.m */; };
 		21CB10D01516A95800D8A1FD /* atrero-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CB10CF1516A95800D8A1FD /* atrero-icon.png */; };
 		21CB10D31516AA1100D8A1FD /* atrero-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CB10D21516AA1100D8A1FD /* atrero-icon-retina.png */; };
+		21CB10D91516BBAD00D8A1FD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB10D71516BBAD00D8A1FD /* SettingsViewController.m */; };
+		21CB10DA1516BBAD00D8A1FD /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CB10D81516BBAD00D8A1FD /* SettingsViewController.xib */; };
+		21CB10DD1516E6A700D8A1FD /* SettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB10DC1516E6A700D8A1FD /* SettingsStore.m */; };
 		21CE786114A9D5F400029155 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786014A9D5F400029155 /* background-2.png */; };
 		21CE786314A9D66F00029155 /* background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786214A9D66F00029155 /* background-1.png */; };
 		21CE788914AA06D700029155 /* ListMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788814AA06D600029155 /* ListMasterViewController.m */; };
@@ -121,6 +124,11 @@
 		21C91A4114A80BD00009AC7E /* weddingDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weddingDateViewController.m; sourceTree = "<group>"; };
 		21CB10CF1516A95800D8A1FD /* atrero-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atrero-icon.png"; sourceTree = "<group>"; };
 		21CB10D21516AA1100D8A1FD /* atrero-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atrero-icon-retina.png"; sourceTree = "<group>"; };
+		21CB10D61516BBAD00D8A1FD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = WuForm/SettingsViewController.h; sourceTree = SOURCE_ROOT; };
+		21CB10D71516BBAD00D8A1FD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = WuForm/SettingsViewController.m; sourceTree = SOURCE_ROOT; };
+		21CB10D81516BBAD00D8A1FD /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = WuForm/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
+		21CB10DB1516E6A700D8A1FD /* SettingsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsStore.h; path = WuForm/SettingsStore.h; sourceTree = SOURCE_ROOT; };
+		21CB10DC1516E6A700D8A1FD /* SettingsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsStore.m; path = WuForm/SettingsStore.m; sourceTree = SOURCE_ROOT; };
 		21CE786014A9D5F400029155 /* background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-2.png"; sourceTree = "<group>"; };
 		21CE786214A9D66F00029155 /* background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-1.png"; sourceTree = "<group>"; };
 		21CE788714AA06D600029155 /* ListMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListMasterViewController.h; sourceTree = "<group>"; };
@@ -292,14 +300,14 @@
 				210557CF14B283A400A64089 /* Reachability */,
 				210557CB14B27C9F00A64089 /* XMLReader */,
 				2113F34C14ADC72A00284C93 /* Data Model */,
+				210557F214B2B8B800A64089 /* EventSyncher */,
 				2113F34B14ADC63F00284C93 /* AddView */,
 				2113F34914ADC62900284C93 /* ListView */,
-				210557F214B2B8B800A64089 /* EventSyncher */,
 				21353D7414A494990048D1B5 /* Supporting Files */,
 				21353D7C14A494990048D1B5 /* AppDelegate.h */,
 				21353D7D14A494990048D1B5 /* AppDelegate.m */,
-				212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */,
-				212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */,
+				21CB10D41516ABBC00D8A1FD /* MainMenu */,
+				21CB10D51516BB3E00D8A1FD /* SettingsView */,
 			);
 			path = WuForm;
 			sourceTree = "<group>";
@@ -310,7 +318,6 @@
 				21CB10CF1516A95800D8A1FD /* atrero-icon.png */,
 				2105579A14B1BDB500A64089 /* Icon-72.png */,
 				21CB10D21516AA1100D8A1FD /* atrero-icon-retina.png */,
-				212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */,
 				2105579714B1BDA100A64089 /* Icon-72.png */,
 				21CE786214A9D66F00029155 /* background-1.png */,
 				21CE786014A9D5F400029155 /* background-2.png */,
@@ -322,6 +329,29 @@
 				21353D7B14A494990048D1B5 /* WuForm-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21CB10D41516ABBC00D8A1FD /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */,
+				212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */,
+				212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */,
+			);
+			name = MainMenu;
+			sourceTree = "<group>";
+		};
+		21CB10D51516BB3E00D8A1FD /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				21CB10D61516BBAD00D8A1FD /* SettingsViewController.h */,
+				21CB10D71516BBAD00D8A1FD /* SettingsViewController.m */,
+				21CB10D81516BBAD00D8A1FD /* SettingsViewController.xib */,
+				21CB10DB1516E6A700D8A1FD /* SettingsStore.h */,
+				21CB10DC1516E6A700D8A1FD /* SettingsStore.m */,
+			);
+			name = SettingsView;
+			path = XMLReader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +420,7 @@
 				21B535D714B4F7470054B7BB /* AddSuccessfulViewController.xib in Resources */,
 				21CB10D01516A95800D8A1FD /* atrero-icon.png in Resources */,
 				21CB10D31516AA1100D8A1FD /* atrero-icon-retina.png in Resources */,
+				21CB10DA1516BBAD00D8A1FD /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +454,8 @@
 				210557EF14B28FEE00A64089 /* ASINetworkQueue.m in Sources */,
 				210557F514B2B8F000A64089 /* EventSyncher.m in Sources */,
 				21B535D614B4F7470054B7BB /* AddSuccessfulViewController.m in Sources */,
+				21CB10D91516BBAD00D8A1FD /* SettingsViewController.m in Sources */,
+				21CB10DD1516E6A700D8A1FD /* SettingsStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

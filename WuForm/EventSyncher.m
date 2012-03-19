@@ -11,11 +11,12 @@
 #import "ASIFormDataRequest.h"
 #import "XMLReader.h"
 #import "EventStore.h"
+#import "SettingsStore.h"
 
 @implementation EventSyncher
-NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
-NSString * const APIHash = @"r7x2x3";
-NSString * const APIsubdomain = @"atrerophoto";
+//NSString * const APIKey = @"UDMR-V433-W03M-0AEG";
+//NSString * const APIHash = @"r7x2x3";
+//NSString * const APIsubdomain = @"atrerophoto";
 
 - (id)init
 {
@@ -31,8 +32,13 @@ NSString * const APIsubdomain = @"atrerophoto";
 - (Boolean) startSync:(Event *)event
 {
   NSLog(@"%s", __FUNCTION__);
-  NSString *wufooURL = [NSString stringWithFormat:@"https://%@.wufoo.com/api/v3/forms/%@/entries.xml",APIsubdomain,APIHash];
   
+  // Get user settings
+  NSString *APIKey       = [[SettingsStore defaultStore] apiKey];
+  NSString *APIHash      = [[SettingsStore defaultStore] apiHash];
+  NSString *APIsubdomain = [[SettingsStore defaultStore] apiSubdomain];
+  
+  NSString *wufooURL = [NSString stringWithFormat:@"https://%@.wufoo.com/api/v3/forms/%@/entries.xml",APIsubdomain,APIHash];
   
   NSURL *url = [NSURL URLWithString:wufooURL];
   myRequest = [ASIFormDataRequest requestWithURL:url];
@@ -67,8 +73,13 @@ NSString * const APIsubdomain = @"atrerophoto";
 - (Boolean) startSync2:(NSTimer *)timer
 {
   NSLog(@"%s", __FUNCTION__);
-  NSString *wufooURL = [NSString stringWithFormat:@"https://%@.wufoo.com/api/v3/forms/%@/entries.xml",APIsubdomain,APIHash];
   
+  // Get user settings
+  NSString *APIKey = [[SettingsStore defaultStore] apiKey];
+  NSString *APIHash = [[SettingsStore defaultStore] apiHash];
+  NSString *APIsubdomain = [[SettingsStore defaultStore] apiSubdomain];
+  
+  NSString *wufooURL = [NSString stringWithFormat:@"https://%@.wufoo.com/api/v3/forms/%@/entries.xml",APIsubdomain,APIHash];
   
   NSURL *url = [NSURL URLWithString:wufooURL];
   myRequest = [ASIFormDataRequest requestWithURL:url];
@@ -125,7 +136,12 @@ NSString * const APIsubdomain = @"atrerophoto";
 {
   NSError *error = [request error];
   NSLog(@"sync request error:%@",error);
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Synch Error" message:@"There was a problem connecting to server.  Check if you are currently connected to the internet or whether if Airplane Mode is enabled." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Synch Error" 
+                                                  message:@"There was a problem connecting to server. \
+                        Check if you are currently connected to the internet or whether if Airplane Mode is enabled." 
+                                                 delegate:nil 
+                                        cancelButtonTitle:@"Ok" 
+                                        otherButtonTitles:nil];
   [alert show];
 }
 
@@ -157,7 +173,18 @@ NSString * const APIsubdomain = @"atrerophoto";
   
   // find out which event was synched, via connection
   NSDictionary *dic = [XMLReader dictionaryForXMLString:myResponse error:nil];
-  
+
+  if(dic == nil)
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wufoo Authorization Failed"
+                                                    message:@"Please verify your API settings" 
+                                                   delegate:self 
+                                          cancelButtonTitle:@"OK" 
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    return;
+  }
   for (id key in dic) {
     NSLog(@"key: %@, value: %@", key, [dic objectForKey:key]);
     NSDictionary *dic2 = [dic objectForKey:key];
