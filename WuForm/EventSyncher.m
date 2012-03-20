@@ -115,7 +115,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
   NSLog(@"%s", __FUNCTION__);
-  NSString *response = [request responseString];
+//  NSString *response = [request responseString];
   Event *event =     [[request userInfo] objectForKey:@"event"];
   
   NSLog(@"Got requestFinished for event.uuid = %@", [event uuid]);

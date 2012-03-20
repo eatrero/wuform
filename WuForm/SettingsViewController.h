@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate>
+@interface SettingsViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *apiKeyField;
 @property (strong, nonatomic) IBOutlet UITextField *apiHashField;
 @property (strong, nonatomic) IBOutlet UITextField *apiSubdomainField;
@@ -17,6 +17,7 @@
 - (IBAction)doAPIKeyDidEnd:(id)sender;
 - (IBAction)doAPIHashDidEnd:(id)sender;
 - (IBAction)doAPISubdomainDidEnd:(id)sender;
+- (IBAction)doPickImage:(id)sender;
 
 
 @end

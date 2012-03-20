@@ -15,9 +15,13 @@
 @property (nonatomic, strong) NSString *apiHash;
 @property (nonatomic, strong) NSString *apiSubdomain;
 
+
 // EventStore is a Singleton
 + (SettingsStore *) defaultStore;
 - (void) initSettings;
 - (void) storeSettings;
+
+- (UIImage *) bgImage;
+- (void) setBgImage:(UIImage *)img;
 
 @end

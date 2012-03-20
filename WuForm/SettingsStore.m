@@ -82,4 +82,43 @@ static NSString *SUBDOMAIN_KEY = @"SubdomainKey";
   [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
+
+- (UIImage *) bgImage
+{
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
+                                                       NSUserDomainMask, 
+                                                       YES);
+  NSString *documentPaths = [paths objectAtIndex:0];
+  NSString *bgImagePath = [documentPaths stringByAppendingPathComponent:@"bgImage.png"];
+
+  NSData *imgData = [[NSData alloc] initWithContentsOfFile:bgImagePath];
+  
+  UIImage *bgImg = [[UIImage alloc] initWithData:imgData];
+  
+  return bgImg;
+}
+
+- (void) setBgImage:(UIImage *)img
+{
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
+                                                       NSUserDomainMask, 
+                                                       YES);
+  NSString *documentPaths = [paths objectAtIndex:0];
+  NSString *bgImagePath = [documentPaths stringByAppendingPathComponent:@"bgImage.png"];
+  
+  [UIImagePNGRepresentation(img) writeToFile:bgImagePath atomically:YES];
+  
+  // Create file manager
+  NSError *error;
+  NSFileManager *fileMgr = [NSFileManager defaultManager];
+  
+  // Point to Document directory
+  NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+  
+  // Write out the contents of home directory to console
+  NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);  
+}
+
+
+
 @end

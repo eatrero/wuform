@@ -22,8 +22,6 @@
 				<string>atrero-icon.png</string>
 				<string>atrero-icon-retina.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<true/>
 		</dict>
 		<key>UINewsstandIcon</key>
 		<dict>
@@ -50,8 +48,6 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

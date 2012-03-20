@@ -8,11 +8,18 @@
 
 #import "SettingsViewController.h"
 #import "SettingsStore.h"
+#import <MobileCoreServices/UTCoreTypes.h>
+
 @interface SettingsViewController ()
 
 @end
 
 @implementation SettingsViewController
+{
+  UIImagePickerController *ip;  
+  UIPopoverController *popoverController;
+  UIImage *bgImage;
+}
 @synthesize apiSubdomainField;
 @synthesize scrollView;
 @synthesize apiKeyField;
@@ -40,6 +47,24 @@
   // Set Navigation Bar style
   scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height*1.5);  
   [self.navigationController setNavigationBarHidden:NO animated:NO];  
+  ip = [[UIImagePickerController alloc] init];
+  popoverController = [[UIPopoverController alloc] initWithContentViewController:ip];
+  
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  
+  bgImage = [SettingsStore defaultStore].bgImage;
+  
+  if (bgImage) {
+    NSLog(@"User Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:bgImage];
+  }
+  else {
+    NSLog(@"Default Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+  }
 }
 
 - (void)viewDidUnload
@@ -73,6 +98,54 @@
 - (IBAction)doAPISubdomainDidEnd:(id)sender {
   NSLog(@"%s", __FUNCTION__);
   [[SettingsStore defaultStore] setApiSubdomain:self.apiSubdomainField.text];
+}
+
+- (IBAction)doPickImage:(id)sender {
+  NSLog(@"%s", __FUNCTION__);
+
+  
+  [ip setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+  if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+  {
+    NSLog(@"%s got photo library type", __FUNCTION__);    
+  }
+  
+  NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+  
+  if([mediaTypes containsObject:(NSString *) kUTTypeImage])
+  {
+    NSLog(@"%s got photo library has Images", __FUNCTION__);        
+  }
+  
+  [ip setMediaTypes:[[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil]];
+  [ip setDelegate:self];
+  
+  [popoverController setPopoverContentSize:CGSizeMake(320, 280) animated:YES];
+//  [self presentViewController:popoverController animated:YES completion:Nil];
+  [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+
+  
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+  NSLog(@"%s", __FUNCTION__);
+//  NSLog(@"%s", );
+
+  bgImage = [info objectForKey:(NSString *) UIImagePickerControllerOriginalImage];
+
+  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:bgImage];
+  
+  [[SettingsStore defaultStore] setBgImage:bgImage];
+  
+  [popoverController dismissPopoverAnimated:YES];
+  
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+  NSLog(@"%s", __FUNCTION__);
+  
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
