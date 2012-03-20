@@ -10,6 +10,7 @@
 #import "ListViewController2.h"
 #import "AddSuccessfulViewController.h"
 #import "SettingsViewController.h"
+#import "SettingsStore.h"
 
 @implementation MainMenuViewController
 
@@ -59,6 +60,16 @@
 {
   [super viewWillAppear:animated];
   [self.navigationController setNavigationBarHidden:YES animated:NO];
+  UIImage *bgImage = [SettingsStore defaultStore].bgImage;
+  
+  if (bgImage) {
+    NSLog(@"User Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:bgImage];
+  }
+  else {
+    NSLog(@"Default Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+  }
 }
 
 - (void)viewDidUnload
