@@ -7,6 +7,7 @@
 //
 
 #import "AddSuccessfulViewController.h"
+#import "SettingsStore.h"
 
 @implementation AddSuccessfulViewController
 
@@ -39,7 +40,16 @@
   // Set the title.
   self.title = @"Thank You!";
   
-  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+  UIImage *bgImage = [[SettingsStore defaultStore] bgImage];
+  
+  if (bgImage) {
+    NSLog(@"User Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:bgImage];
+  }
+  else {
+    NSLog(@"Default Bg img loaded");
+    self.view.backgroundColor = [UIColor clearColor];
+  }
   UIImage *btnImage = [UIImage imageNamed:@"date-button.png"];
   okButton = [[UIButton alloc] initWithFrame:CGRectMake(293.0, 540.0, 200.0, 60.0)];
   [okButton setBackgroundImage:btnImage forState:UIControlStateNormal];

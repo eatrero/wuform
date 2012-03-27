@@ -10,6 +10,42 @@
 #import "SettingsStore.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
+@interface LogoPicker : NSObject <UINavigationControllerDelegate, UIPickerViewDelegate>
+
+@end
+
+@implementation LogoPicker
+{
+  UIImagePickerController *ip;  
+  UIPopoverController *popoverController;
+  UIImage *logoImage;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+  NSLog(@"%s", __FUNCTION__);
+  //  NSLog(@"%s", );
+  
+  logoImage = [info objectForKey:(NSString *) UIImagePickerControllerOriginalImage];
+  
+  [[SettingsStore defaultStore] setLogoImage:logoImage];
+      
+  NSNotification *note = [NSNotification notificationWithName:@"DismissPopup" 
+                                                       object:self 
+                                                     userInfo:nil]; 
+  [[NSNotificationCenter defaultCenter] postNotification:note];
+  
+  
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+  NSLog(@"%s", __FUNCTION__);
+  
+}
+
+@end
+
 @interface SettingsViewController ()
 
 @end
@@ -19,6 +55,7 @@
   UIImagePickerController *ip;  
   UIPopoverController *popoverController;
   UIImage *bgImage;
+  LogoPicker *logoPicker;
 }
 @synthesize apiSubdomainField;
 @synthesize scrollView;
@@ -40,15 +77,25 @@
   NSLog(@"%s", __FUNCTION__);
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
+  // Set the title.
+  self.title = @"Settings";
+  
   self.apiHashField.text      = [[SettingsStore defaultStore] apiHash];
   self.apiKeyField.text       = [[SettingsStore defaultStore] apiKey];
   self.apiSubdomainField.text = [[SettingsStore defaultStore] apiSubdomain];
+  logoPicker = [[LogoPicker alloc] init];
   
   // Set Navigation Bar style
   scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height*1.5);  
   [self.navigationController setNavigationBarHidden:NO animated:NO];  
   ip = [[UIImagePickerController alloc] init];
   popoverController = [[UIPopoverController alloc] initWithContentViewController:ip];
+
+  NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+  [nc addObserver:self  
+         selector:@selector(dismissPopup:)       
+             name:@"DismissPopup"          
+           object:nil];                     
   
 }
 
@@ -63,7 +110,7 @@
   }
   else {
     NSLog(@"Default Bg img loaded");
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+    self.view.backgroundColor = [UIColor clearColor];
   }
 }
 
@@ -74,6 +121,7 @@
   [self setApiHashField:nil];
   [self setScrollView:nil];
   [self setApiSubdomainField:nil];
+  logoPicker = nil;
   [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -127,6 +175,31 @@
   
 }
 
+- (IBAction)doPickLogo:(id)sender {
+  NSLog(@"%s", __FUNCTION__);
+  
+  
+  [ip setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+  if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+  {
+    NSLog(@"%s got photo library type", __FUNCTION__);    
+  }
+  
+  NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+  
+  if([mediaTypes containsObject:(NSString *) kUTTypeImage])
+  {
+    NSLog(@"%s got photo library has Images", __FUNCTION__);        
+  }
+  
+  [ip setMediaTypes:[[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil]];
+  [ip setDelegate:logoPicker];
+  
+  [popoverController setPopoverContentSize:CGSizeMake(320, 280) animated:YES];
+  //  [self presentViewController:popoverController animated:YES completion:Nil];
+  [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
   NSLog(@"%s", __FUNCTION__);
@@ -145,6 +218,13 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
   NSLog(@"%s", __FUNCTION__);
+  
+}
+
+- (void)dismissPopup:(NSNotification *)note
+{
+  NSLog(@"%s", __FUNCTION__);
+  [popoverController dismissPopoverAnimated:YES];
   
 }
 

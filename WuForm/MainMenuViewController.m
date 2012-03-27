@@ -13,11 +13,17 @@
 #import "SettingsStore.h"
 
 @implementation MainMenuViewController
-
+{
+  UIImage *logoImage;
+  UIView  *logoView;
+}
+ 
 @synthesize addButton;
 @synthesize listButton;
 @synthesize mainMenuNavigationController;
 @synthesize managedObjectContext;
+@synthesize logoImageView;
+@synthesize logoView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,9 +47,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
   
   self.title = @"Main Menu";
-  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-2.png"]];
+  UIImage *bgImage = [[SettingsStore defaultStore] bgImage];
+  
+  if (bgImage) {
+    NSLog(@"User Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:bgImage];
+  }
+  else {
+    NSLog(@"Default Bg img loaded");
+//    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-2.png"]];
+    self.view.backgroundColor = [UIColor clearColor];
+  }  
+  
   addViewController = [[AddViewController alloc] init];
   [addViewController setMainMenuViewController:[self mainMenuNavigationController]];
   addViewController.managedObjectContext = managedObjectContext;
@@ -52,15 +70,18 @@
   
   [addButton addTarget:self action:@selector(showAddView:) forControlEvents:UIControlEventTouchUpInside];
   [listButton addTarget:self action:@selector(showListView:) forControlEvents:UIControlEventTouchUpInside];
-  
-    // Do any additional setup after loading the view from its nib.
+  [self.logoImageView setOpaque:YES];
+  [self.logoView setOpaque:YES];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
   [self.navigationController setNavigationBarHidden:YES animated:NO];
-  UIImage *bgImage = [SettingsStore defaultStore].bgImage;
+  
+  // load background
+  UIImage *bgImage = [[SettingsStore defaultStore] bgImage];
   
   if (bgImage) {
     NSLog(@"User Bg img loaded");
@@ -68,15 +89,28 @@
   }
   else {
     NSLog(@"Default Bg img loaded");
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+    self.view.backgroundColor = [UIColor clearColor];
   }
+  
+  // load logo 
+	//Set Animation Properties
+	[UIView setAnimationDuration: 0.50];
+  self.logoView.backgroundColor = [UIColor clearColor];
+  self.logoImageView.contentMode = UIViewContentModeCenter;
+  logoImage = [[SettingsStore defaultStore] logoImage];
+  [self.logoImageView setImage:logoImage];
 }
+
 
 - (void)viewDidUnload
 {
+    [self setLogoImageView:nil];
+  [self setLogoView:nil];
+  [self setLogoImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

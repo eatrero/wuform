@@ -106,7 +106,51 @@ static NSString *SUBDOMAIN_KEY = @"SubdomainKey";
   NSString *documentPaths = [paths objectAtIndex:0];
   NSString *bgImagePath = [documentPaths stringByAppendingPathComponent:@"bgImage.png"];
   
-  [UIImagePNGRepresentation(img) writeToFile:bgImagePath atomically:YES];
+  // Create file manager
+  NSError *error;
+  NSFileManager *fileMgr = [NSFileManager defaultManager];
+  
+  // Point to Document directory
+  NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+  
+  // Write out the contents of home directory to console
+  NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);  
+  
+  // execute save to disk as a background thread
+  dispatch_queue_t myQueue = dispatch_queue_create("com.panoche.myqueue", 0);
+  dispatch_async(myQueue, ^{
+    BOOL wroteImg = [UIImagePNGRepresentation(img) writeToFile:bgImagePath atomically:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (wroteImg) {   
+        [self performSelectorOnMainThread: @selector(doNotification:) withObject: self waitUntilDone: YES];
+      }
+    });
+  });
+}
+
+
+- (UIImage *) logoImage
+{
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
+                                                       NSUserDomainMask, 
+                                                       YES);
+  NSString *documentPaths = [paths objectAtIndex:0];
+  NSString *logoImagePath = [documentPaths stringByAppendingPathComponent:@"logoImage.png"];
+  
+  NSData *imgData = [[NSData alloc] initWithContentsOfFile:logoImagePath];
+  
+  UIImage *logoImage = [[UIImage alloc] initWithData:imgData];
+  
+  return logoImage;
+}
+
+- (void) setLogoImage:(UIImage *)img
+{
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
+                                                       NSUserDomainMask, 
+                                                       YES);
+  NSString *documentPaths = [paths objectAtIndex:0];
+  NSString *logoImagePath = [documentPaths stringByAppendingPathComponent:@"logoImage.png"];
   
   // Create file manager
   NSError *error;
@@ -117,7 +161,32 @@ static NSString *SUBDOMAIN_KEY = @"SubdomainKey";
   
   // Write out the contents of home directory to console
   NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);  
+  
+  // execute save to disk as a background thread
+  dispatch_queue_t myQueue = dispatch_queue_create("com.panoche.myqueue", 0);
+  dispatch_async(myQueue, ^{
+    BOOL wroteImg = [UIImagePNGRepresentation(img) writeToFile:logoImagePath atomically:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (wroteImg) {   
+        [self performSelectorOnMainThread: @selector(doNotification:) withObject: self waitUntilDone: YES];
+      }
+    });
+  });
+  
+  
 }
+
+-(void) doNotification: (id) thingToPassAlong
+{
+//  [[NSNotificationCenter defaultCenter] postNotificationName:kImageSavedSuccessfully object:thingToPassAlong];
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Image Saved" 
+                                                  message:@"Image stored" 
+                                                 delegate:self 
+                                        cancelButtonTitle:@"OK" 
+                                        otherButtonTitles:nil];
+  [alert show];
+}
+
 
 
 

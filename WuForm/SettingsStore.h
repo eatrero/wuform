@@ -22,6 +22,8 @@
 - (void) storeSettings;
 
 - (UIImage *) bgImage;
+- (UIImage *) logoImage;
 - (void) setBgImage:(UIImage *)img;
+- (void) setLogoImage:(UIImage *)img;
 
 @end

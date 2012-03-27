@@ -27,7 +27,6 @@
 		210557EF14B28FEE00A64089 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 210557E614B28FEE00A64089 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		210557F114B291BB00A64089 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 210557F014B291BB00A64089 /* libz.dylib */; };
 		210557F514B2B8F000A64089 /* EventSyncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 210557F414B2B8F000A64089 /* EventSyncher.m */; };
-		210557F814B2F38A00A64089 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 210557F714B2F38900A64089 /* Default-Portrait~ipad.png */; };
 		212AEA6614A96D9400E15AD5 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */; };
 		212AEA6714A96D9400E15AD5 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */; };
 		21353D6E14A494990048D1B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D6D14A494990048D1B5 /* UIKit.framework */; };
@@ -43,14 +42,14 @@
 		21353D9114A497020048D1B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21353D9014A497020048D1B5 /* CoreData.framework */; };
 		21B535D614B4F7470054B7BB /* AddSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B535D414B4F7470054B7BB /* AddSuccessfulViewController.m */; };
 		21B535D714B4F7470054B7BB /* AddSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B535D514B4F7470054B7BB /* AddSuccessfulViewController.xib */; };
+		21B6A1A915216F7B0024B165 /* logo-horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = 21B6A1A815216F7B0024B165 /* logo-horizontal.png */; };
+		21B6A1AB1521828F0024B165 /* cog-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21B6A1AA1521828F0024B165 /* cog-icon.png */; };
 		21C91A4214A80BD00009AC7E /* weddingDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C91A4114A80BD00009AC7E /* weddingDateViewController.m */; };
 		21CB10D01516A95800D8A1FD /* atrero-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CB10CF1516A95800D8A1FD /* atrero-icon.png */; };
 		21CB10D31516AA1100D8A1FD /* atrero-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CB10D21516AA1100D8A1FD /* atrero-icon-retina.png */; };
 		21CB10D91516BBAD00D8A1FD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB10D71516BBAD00D8A1FD /* SettingsViewController.m */; };
 		21CB10DA1516BBAD00D8A1FD /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CB10D81516BBAD00D8A1FD /* SettingsViewController.xib */; };
 		21CB10DD1516E6A700D8A1FD /* SettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB10DC1516E6A700D8A1FD /* SettingsStore.m */; };
-		21CE786114A9D5F400029155 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786014A9D5F400029155 /* background-2.png */; };
-		21CE786314A9D66F00029155 /* background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CE786214A9D66F00029155 /* background-1.png */; };
 		21CE788914AA06D700029155 /* ListMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE788814AA06D600029155 /* ListMasterViewController.m */; };
 		21CE789314AC892400029155 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CE789114AC891D00029155 /* ListDetailViewController.m */; };
 		21CE789414AC892400029155 /* ListDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21CE789214AC892000029155 /* ListDetailViewController.xib */; };
@@ -96,7 +95,6 @@
 		210557F014B291BB00A64089 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		210557F314B2B8F000A64089 /* EventSyncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSyncher.h; sourceTree = "<group>"; };
 		210557F414B2B8F000A64089 /* EventSyncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSyncher.m; sourceTree = "<group>"; };
-		210557F714B2F38900A64089 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		212AEA6314A96D9400E15AD5 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		212AEA6414A96D9400E15AD5 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		212AEA6514A96D9400E15AD5 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -120,6 +118,8 @@
 		21B535D314B4F7470054B7BB /* AddSuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSuccessfulViewController.h; sourceTree = "<group>"; };
 		21B535D414B4F7470054B7BB /* AddSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSuccessfulViewController.m; sourceTree = "<group>"; };
 		21B535D514B4F7470054B7BB /* AddSuccessfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSuccessfulViewController.xib; sourceTree = "<group>"; };
+		21B6A1A815216F7B0024B165 /* logo-horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-horizontal.png"; sourceTree = "<group>"; };
+		21B6A1AA1521828F0024B165 /* cog-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog-icon.png"; sourceTree = "<group>"; };
 		21C91A4014A80BD00009AC7E /* weddingDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weddingDateViewController.h; sourceTree = "<group>"; };
 		21C91A4114A80BD00009AC7E /* weddingDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weddingDateViewController.m; sourceTree = "<group>"; };
 		21CB10CF1516A95800D8A1FD /* atrero-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atrero-icon.png"; sourceTree = "<group>"; };
@@ -129,8 +129,6 @@
 		21CB10D81516BBAD00D8A1FD /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = WuForm/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		21CB10DB1516E6A700D8A1FD /* SettingsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsStore.h; path = WuForm/SettingsStore.h; sourceTree = SOURCE_ROOT; };
 		21CB10DC1516E6A700D8A1FD /* SettingsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsStore.m; path = WuForm/SettingsStore.m; sourceTree = SOURCE_ROOT; };
-		21CE786014A9D5F400029155 /* background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-2.png"; sourceTree = "<group>"; };
-		21CE786214A9D66F00029155 /* background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-1.png"; sourceTree = "<group>"; };
 		21CE788714AA06D600029155 /* ListMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListMasterViewController.h; sourceTree = "<group>"; };
 		21CE788814AA06D600029155 /* ListMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListMasterViewController.m; sourceTree = "<group>"; };
 		21CE789014AC891B00029155 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 		21353D5E14A494990048D1B5 = {
 			isa = PBXGroup;
 			children = (
-				210557F714B2F38900A64089 /* Default-Portrait~ipad.png */,
 				21353D7314A494990048D1B5 /* WuForm */,
 				21353D6C14A494990048D1B5 /* Frameworks */,
 				21353D6A14A494990048D1B5 /* Products */,
@@ -315,13 +312,13 @@
 		21353D7414A494990048D1B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				21B6A1A815216F7B0024B165 /* logo-horizontal.png */,
 				21CB10CF1516A95800D8A1FD /* atrero-icon.png */,
 				2105579A14B1BDB500A64089 /* Icon-72.png */,
 				21CB10D21516AA1100D8A1FD /* atrero-icon-retina.png */,
 				2105579714B1BDA100A64089 /* Icon-72.png */,
-				21CE786214A9D66F00029155 /* background-1.png */,
-				21CE786014A9D5F400029155 /* background-2.png */,
 				2102A1D514A885AA00288470 /* date-button-highlight.png */,
+				21B6A1AA1521828F0024B165 /* cog-icon.png */,
 				2102A1D614A885AA00288470 /* date-button.png */,
 				21353D7514A494990048D1B5 /* WuForm-Info.plist */,
 				21353D7614A494990048D1B5 /* InfoPlist.strings */,
@@ -410,17 +407,16 @@
 				2102A1D714A885AA00288470 /* date-button-highlight.png in Resources */,
 				2102A1D814A885AA00288470 /* date-button.png in Resources */,
 				212AEA6714A96D9400E15AD5 /* MainMenuViewController.xib in Resources */,
-				21CE786114A9D5F400029155 /* background-2.png in Resources */,
-				21CE786314A9D66F00029155 /* background-1.png in Resources */,
 				21CE789414AC892400029155 /* ListDetailViewController.xib in Resources */,
 				21CE789914AC8E1D00029155 /* ListViewController2.xib in Resources */,
 				2105579814B1BDA100A64089 /* Icon-72.png in Resources */,
 				2105579B14B1BDB500A64089 /* Icon-72.png in Resources */,
-				210557F814B2F38A00A64089 /* Default-Portrait~ipad.png in Resources */,
 				21B535D714B4F7470054B7BB /* AddSuccessfulViewController.xib in Resources */,
 				21CB10D01516A95800D8A1FD /* atrero-icon.png in Resources */,
 				21CB10D31516AA1100D8A1FD /* atrero-icon-retina.png in Resources */,
 				21CB10DA1516BBAD00D8A1FD /* SettingsViewController.xib in Resources */,
+				21B6A1A915216F7B0024B165 /* logo-horizontal.png in Resources */,
+				21B6A1AB1521828F0024B165 /* cog-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +527,7 @@
 		21353D8814A494990048D1B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WuForm/WuForm-Prefix.pch";
 				INFOPLIST_FILE = "WuForm/WuForm-Info.plist";
@@ -542,6 +539,7 @@
 		21353D8914A494990048D1B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WuForm/WuForm-Prefix.pch";
 				INFOPLIST_FILE = "WuForm/WuForm-Info.plist";

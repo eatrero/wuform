@@ -24,6 +24,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *listButton;
 @property (nonatomic, retain) IBOutlet UINavigationController *mainMenuNavigationController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (strong, nonatomic) IBOutlet UIView *logoView;
 
 - (IBAction) showAddView:(id)sender;
 - (IBAction) showListView:(id)sender;

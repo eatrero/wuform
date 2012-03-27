@@ -8,6 +8,7 @@
 
 #import "ListDetailViewController.h"
 #import "EventSyncher.h"
+#import "SettingsStore.h"
 
 @implementation ListDetailViewController
 @synthesize event;
@@ -47,7 +48,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+  UIImage *bgImage = [[SettingsStore defaultStore] bgImage];
+  
+  if (bgImage) {
+    NSLog(@"User Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:bgImage];
+  }
+  else {
+    NSLog(@"Default Bg img loaded");
+    self.view.backgroundColor = [UIColor clearColor];
+  }
 }
 
 - (void)viewDidUnload

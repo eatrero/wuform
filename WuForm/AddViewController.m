@@ -10,7 +10,7 @@
 #import "AddViewController.h"
 #import "AddSuccessfulViewController.h"
 #import "Event.h"
-
+#import "SettingsStore.h"
 
 @implementation AddViewController
 @synthesize eventsArray;
@@ -101,8 +101,16 @@
   // Set the title.
   self.title = @"Add";
   
-  // Set up the buttons.
-  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-1.png"]];
+  UIImage *bgImage = [[SettingsStore defaultStore] bgImage];
+  
+  if (bgImage) {
+    NSLog(@"User Bg img loaded");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:bgImage];
+  }
+  else {
+    NSLog(@"Default Bg img loaded");
+    self.view.backgroundColor = [UIColor clearColor];
+  }
   
   // popoverViewController = [[UIViewController alloc] init];
   popoverViewController = [[WeddingDateViewController alloc] init];
@@ -167,7 +175,6 @@
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    UITableViewCellStyleSubtitle;
   }
   
   Event *event = (Event *)[eventsArray objectAtIndex:indexPath.row];
@@ -309,7 +316,7 @@
   [self.firstNameTextField resignFirstResponder];
 
   NSLog(@"Popup Controller");
-  [popoverController presentPopoverFromRect:CGRectMake(293.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+  [popoverController presentPopoverFromRect:CGRectMake(260.0, 403.0, 182, 37.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
   
 }
 

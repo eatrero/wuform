@@ -18,6 +18,7 @@
 - (IBAction)doAPIHashDidEnd:(id)sender;
 - (IBAction)doAPISubdomainDidEnd:(id)sender;
 - (IBAction)doPickImage:(id)sender;
+- (IBAction)doPickLogo:(id)sender;
 
 
 @end
